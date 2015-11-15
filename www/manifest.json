@@ -1,0 +1,14 @@
+{
+  "short_name": "Topkiss",
+  "name": "Topkiss App",
+  "icons": [
+    {
+      "src": "img/icon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "portrait"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "topkiss",
+  "version": "1.0.0",
+  "description": "TopKiss, um app de ranking dos mais tops.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "Eduardo. @duduindo",
+  "license": "ISC",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
+}
