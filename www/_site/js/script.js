@@ -49,7 +49,7 @@ if ('addEventListener' in document) {
         
     //Alterando o paragráfo conforme o valor do 'range'
     On('input', '#ModalPreferencias [type="range"]', function(este, evento){    	
-    	var p = evento.target.nextElementSibling; //Detecta a próxima tag
+    	var p = evento.target.nextElementSibling; //Detecta tag irmão
     	p.textContent = este.value + 'km.'; //Modifica o valor
     });
 

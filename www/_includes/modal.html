@@ -50,7 +50,7 @@
                 <ul class="table-view">
                   <li class="table-view-cell">
   
-                    <input type="range" class="pull-left" value="100" min="1" max="100" >
+                    <input type="range" class="pull-left" name="km" value="100" min="1" max="100" >
                     <p class="color-black pull-right">100km</p>
   
                   </li>                                
@@ -61,7 +61,7 @@
               <!-- Sorteio por locais:  -->
               <div class="inline-block col-100 paddingTop50">
                 <p class="color-black pull-left">Sorteio por locais:</p>
-                <input type="radio" class="radio pull-right marginRight10" name="sorteio" value="locais">
+                <input type="radio" class="radio pull-right marginRight10" name="sorteio" value="locais" checked="true">
               </div>
               
               <div class="card">
@@ -69,7 +69,7 @@
                   <li class="table-view-cell">
                     <a class="padding10" href="#ModalEscolherLocaisPreferencias">
                       <span class="fa fa-pencil pull-left"></span>
-                      <p class="color-black pull-left">Brasil todo</p>
+                      <p class="color-black pull-left nome-localEscolhido">Brasil todo</p>
                     </a>
                   </li>                                
                 </ul>
@@ -94,20 +94,29 @@
               <button class="btn btn-block">Pesquisar</button>
             </form>
 
+            <!-- 
+                  data-escolhendoLocal="São Paulo, 0, 0"
+                  data-escolhendoLocal=" Nome, Tipo, Código do local"
+                  0 Brasil todo
+                  1 Estado
+                  2 Cidade
+                  3 Bairro
+                  4 Escola ou faculdade
+            -->
             <ul class="table-view">
               <li class="table-view-cell">
-                <a class="navigate-right" href="#ModalEscolherLocaisPreferencias">
+                <a class="navigate-right" data-escolhendoLocal="São Paulo, 1, 23" href="#ModalEscolherLocaisPreferencias">
                   São paulo
                 </a>
               </li>
               <li class="table-view-cell">
-                <a class="navigate-right" href="#ModalEscolherLocaisPreferencias">
-                  São paulo
+                <a class="navigate-right" data-escolhendoLocal="Carapicuíba, 2, 5000" href="#ModalEscolherLocaisPreferencias">
+                  Carapicuíba
                 </a>
               </li>
               <li class="table-view-cell">
-                <a class="navigate-right" href="#ModalEscolherLocaisPreferencias">
-                  São paulo
+                <a class="navigate-right" data-escolhendoLocal="Rio de Janeiro, 1, 19" href="#ModalEscolherLocaisPreferencias">
+                  Rio de Janeiro
                 </a>
               </li>
             </ul>
