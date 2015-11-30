@@ -1,0 +1,96 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install', 'angular2' ]
+2 info using npm@2.11.3
+3 info using node@v0.12.7
+4 verbose node symlink /usr/bin/node
+5 verbose install initial load of /var/www/html/topkiss/package.json
+6 warn package.json topkiss@1.0.0 No repository field.
+7 verbose installManyTop reading scoped package data from /var/www/html/topkiss/node_modules/grunt/package.json
+8 info package.json grunt@0.4.5 No license field.
+9 verbose readDependencies loading dependencies from /var/www/html/topkiss/package.json
+10 silly cache add args [ 'angular2', null ]
+11 verbose cache add spec angular2
+12 silly cache add parsed spec { raw: 'angular2',
+12 silly cache add   scope: null,
+12 silly cache add   name: 'angular2',
+12 silly cache add   rawSpec: '',
+12 silly cache add   spec: '*',
+12 silly cache add   type: 'range' }
+13 silly addNamed angular2@*
+14 verbose addNamed "*" is a valid semver range for angular2
+15 silly addNameRange { name: 'angular2', range: '*', hasData: false }
+16 silly mapToRegistry name angular2
+17 silly mapToRegistry using default registry
+18 silly mapToRegistry registry https://registry.npmjs.org/
+19 silly mapToRegistry uri https://registry.npmjs.org/angular2
+20 verbose addNameRange registry:https://registry.npmjs.org/angular2 not in flight; fetching
+21 verbose get https://registry.npmjs.org/angular2 not expired, no request
+22 silly addNameRange number 2 { name: 'angular2', range: '*', hasData: true }
+23 silly addNameRange versions [ 'angular2',
+23 silly addNameRange   [ '2.0.0-alpha.8.dev',
+23 silly addNameRange     '2.0.0-alpha.8.prod',
+23 silly addNameRange     '2.0.0-alpha.11',
+23 silly addNameRange     '2.0.0-alpha.12',
+23 silly addNameRange     '2.0.0-alpha.13',
+23 silly addNameRange     '2.0.0-alpha.14',
+23 silly addNameRange     '2.0.0-alpha.15',
+23 silly addNameRange     '2.0.0-alpha.16',
+23 silly addNameRange     '2.0.0-alpha.17',
+23 silly addNameRange     '2.0.0-alpha.18',
+23 silly addNameRange     '2.0.0-alpha.19',
+23 silly addNameRange     '2.0.0-alpha.20',
+23 silly addNameRange     '2.0.0-alpha.21',
+23 silly addNameRange     '2.0.0-alpha.22',
+23 silly addNameRange     '2.0.0-alpha.23',
+23 silly addNameRange     '2.0.0-alpha.24',
+23 silly addNameRange     '2.0.0-alpha.25',
+23 silly addNameRange     '2.0.0-alpha.26',
+23 silly addNameRange     '2.0.0-alpha.27',
+23 silly addNameRange     '2.0.0-alpha.28',
+23 silly addNameRange     '2.0.0-alpha.29',
+23 silly addNameRange     '2.0.0-alpha.30',
+23 silly addNameRange     '2.0.0-alpha.31',
+23 silly addNameRange     '2.0.0-alpha.32',
+23 silly addNameRange     '2.0.0-alpha.33',
+23 silly addNameRange     '2.0.0-alpha.34',
+23 silly addNameRange     '2.0.0-alpha.35',
+23 silly addNameRange     '2.0.0-alpha.36',
+23 silly addNameRange     '2.0.0-alpha.37',
+23 silly addNameRange     '2.0.0-alpha.38',
+23 silly addNameRange     '2.0.0-alpha.39',
+23 silly addNameRange     '2.0.0-alpha.40',
+23 silly addNameRange     '2.0.0-alpha.41',
+23 silly addNameRange     '2.0.0-alpha.42',
+23 silly addNameRange     '2.0.0-alpha.44',
+23 silly addNameRange     '2.0.0-alpha.45',
+23 silly addNameRange     '2.0.0-alpha.46' ] ]
+24 verbose stack Error: No compatible version found: angular2@'*'
+24 verbose stack Valid install targets:
+24 verbose stack ["2.0.0-alpha.8.dev","2.0.0-alpha.8.prod","2.0.0-alpha.11","2.0.0-alpha.12","2.0.0-alpha.13","2.0.0-alpha.14","2.0.0-alpha.15","2.0.0-alpha.16","2.0.0-alpha.17","2.0.0-alpha.18","2.0.0-alpha.19","2.0.0-alpha.20","2.0.0-alpha.21","2.0.0-alpha.22","2.0.0-alpha.23","2.0.0-alpha.24","2.0.0-alpha.25","2.0.0-alpha.26","2.0.0-alpha.27","2.0.0-alpha.28","2.0.0-alpha.29","2.0.0-alpha.30","2.0.0-alpha.31","2.0.0-alpha.32","2.0.0-alpha.33","2.0.0-alpha.34","2.0.0-alpha.35","2.0.0-alpha.36","2.0.0-alpha.37","2.0.0-alpha.38","2.0.0-alpha.39","2.0.0-alpha.40","2.0.0-alpha.41","2.0.0-alpha.42","2.0.0-alpha.44","2.0.0-alpha.45","2.0.0-alpha.46"]
+24 verbose stack
+24 verbose stack     at installTargetsError (/usr/lib/node_modules/npm/lib/cache/add-named.js:274:12)
+24 verbose stack     at next (/usr/lib/node_modules/npm/lib/cache/add-named.js:253:17)
+24 verbose stack     at setData (/usr/lib/node_modules/npm/lib/cache/add-named.js:230:5)
+24 verbose stack     at RES (/usr/lib/node_modules/npm/node_modules/inflight/inflight.js:23:14)
+24 verbose stack     at f (/usr/lib/node_modules/npm/node_modules/once/once.js:17:25)
+24 verbose stack     at fixName (/usr/lib/node_modules/npm/lib/cache/add-named.js:29:5)
+24 verbose stack     at CachingRegistryClient.get_ (/usr/lib/node_modules/npm/lib/cache/caching-client.js:125:16)
+24 verbose stack     at /usr/lib/node_modules/npm/lib/cache/caching-client.js:91:14
+24 verbose stack     at evalmachine.<anonymous>:334:14
+24 verbose stack     at /usr/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:102:5
+25 verbose cwd /var/www/html/topkiss/www
+26 error Linux 3.13.0-63-generic
+27 error argv "/usr/bin/node" "/usr/bin/npm" "install" "angular2"
+28 error node v0.12.7
+29 error npm  v2.11.3
+30 error code ETARGET
+31 error notarget No compatible version found: angular2@'*'
+31 error notarget Valid install targets:
+31 error notarget ["2.0.0-alpha.8.dev","2.0.0-alpha.8.prod","2.0.0-alpha.11","2.0.0-alpha.12","2.0.0-alpha.13","2.0.0-alpha.14","2.0.0-alpha.15","2.0.0-alpha.16","2.0.0-alpha.17","2.0.0-alpha.18","2.0.0-alpha.19","2.0.0-alpha.20","2.0.0-alpha.21","2.0.0-alpha.22","2.0.0-alpha.23","2.0.0-alpha.24","2.0.0-alpha.25","2.0.0-alpha.26","2.0.0-alpha.27","2.0.0-alpha.28","2.0.0-alpha.29","2.0.0-alpha.30","2.0.0-alpha.31","2.0.0-alpha.32","2.0.0-alpha.33","2.0.0-alpha.34","2.0.0-alpha.35","2.0.0-alpha.36","2.0.0-alpha.37","2.0.0-alpha.38","2.0.0-alpha.39","2.0.0-alpha.40","2.0.0-alpha.41","2.0.0-alpha.42","2.0.0-alpha.44","2.0.0-alpha.45","2.0.0-alpha.46"]
+31 error notarget
+31 error notarget This is most likely not a problem with npm itself.
+31 error notarget In most cases you or one of your dependencies are requesting
+31 error notarget a package version that doesn't exist.
+31 error notarget
+31 error notarget It was specified as a dependency of 'topkiss'
+32 verbose exit [ 1, true ]

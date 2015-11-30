@@ -7,7 +7,11 @@
 *
 */
 
+
+
+
 "use strict";
+
 
 
 if ('addEventListener' in document) {
@@ -24,7 +28,10 @@ if ('addEventListener' in document) {
 			var pageIndex_section = document.querySelectorAll("#page-index > section:nth-of-type(1)")[0];
 			pageIndex_section.style.width = vw + 'px';
 			pageIndex_section.style.height = (vh-60) + 'px';
-		}        
+		}
+
+        //Localstorage para variaveis globais
+        setGlobalVariables();//function.js
 
     }, false);
 
@@ -62,8 +69,7 @@ if ('addEventListener' in document) {
         backdrop.parentNode.removeChild(backdrop);
     });
 
-    //alert( window.innerHeight +" "+ window.innerWidth )
-    
+    //alert( window.innerHeight +" "+ window.innerWidth )   
    
 
     //Popstate

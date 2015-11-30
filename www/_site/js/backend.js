@@ -1,5 +1,7 @@
 /* Váriveis globais defalut
 -------------------*/
+window.servidor = "http://192.168.2.100/topkiss/server/";
+
 window.preferencias = {
 
 	"sexo": {
@@ -15,7 +17,7 @@ window.preferencias = {
 	"locais": {
 		"ativo":true,
 		"nome": "Brasil todo",
-		"tipo": 0,
+		"tipo": "",
 		"local": 0
 	}
 };
@@ -28,10 +30,13 @@ window.preferencias = {
 
 	var elMain;
 	var elForm;
+	var clickLocal;
 
 	var initialization = function () {
 		elMain = document.getElementById("ModalPreferencias");
 		elForm = elMain.getElementsByTagName("form")[0];
+
+
 
 		verifyStorage();
 		preferenciasHTML();
@@ -69,6 +74,57 @@ window.preferencias = {
 		
 	};
 
+	//Resultado da pesquisa na localização
+	/*
+	<li class="table-view-cell">
+      <a class="navigate-right" data-escolhendoLocal="São Paulo, 1, 23" href="#ModalEscolherLocaisPreferencias">
+        São paulo
+      </a>
+    </li>
+	*/
+	window.ResultadoLocais = function ( Qts, arNome, arData ) {
+
+		var elParent = document.querySelector("#ModalEscolherLocaisPreferencias ul.table-view");
+
+		if( typeof(arData) != "object" ) {
+			alert("arData não é Array!");
+			return false;
+		}
+
+		elParent.innerHTML = "";//Zerando
+
+		var li = [];
+		var a  = [];
+		var aText = [];
+
+		for(var n=0; n < Qts; n++) {
+			li[n] = document.createElement("li");
+			a[n] = document.createElement("a");
+			aText[n] = document.createTextNode( arNome[n] );
+
+			li[n].classList.add("table-view-cell");
+			a[n].classList.add("navigate-right");
+			a[n].setAttribute("data-escolhendolocal", arData[n] );			
+			a[n].href = "#ModalEscolherLocaisPreferencias";
+			a[n].appendChild( aText[n] );			
+
+			li[n].appendChild(a[n]);
+			elParent.appendChild(li[n]);
+		}
+
+		//Evento
+		On('touchend', "#ModalEscolherLocaisPreferencias [data-escolhendolocal]", function(este, evento){    	
+    		var data = este.getAttribute("data-escolhendolocal").split(",");    		
+    		data[2] = Number( data[2] );
+	
+			window.preferencias.locais.nome  = data[0];
+			window.preferencias.locais.tipo  = data[1];
+			window.preferencias.locais.local = data[2];
+	
+			elForm.getElementsByClassName("nome-localEscolhido")[0].textContent = data[0];
+		});
+	}
+
 	initialization();
 
 
@@ -93,20 +149,28 @@ window.preferencias = {
     	Dados("preferencias", JSON.stringify(window.preferencias) );
     });
 
-	
-	//Selecionando local
-	//data-escolhendoLocal="[ Nome, Tipo, Código do local]"
-    On('touchend', "#ModalEscolherLocaisPreferencias [data-escolhendoLocal]", function(este, evento){  
-    	var data = este.getAttribute("data-escolhendoLocal").split(",");
-    	data[1] = Number( data[1] );
-    	data[2] = Number( data[2] );
 
-		window.preferencias.locais.nome  = data[0];
-		window.preferencias.locais.tipo  = data[1];
-		window.preferencias.locais.local = data[2];
-
-		elForm.getElementsByClassName("nome-localEscolhido")[0].textContent = data[0];
+    //Selecionando o tipo para o modal #ModalEscolherLocaisPreferencias   
+    On('touchend', "#PopoverTipoLocalPreferencia [data-tipoLocal]", function(este, evento){
+    	document.getElementById("ModalEscolherLocaisPreferencias").setAttribute("data-tipoLocal", este.getAttribute("data-tipoLocal") );
 	});
+	
+	
+	//Procurando local	
+    On('click', "#ModalEscolherLocaisPreferencias form button", function(este, evento){
+    	var elIdParent = document.getElementById("ModalEscolherLocaisPreferencias");      	
+    	var elText = este.parentNode.querySelector("[type=\"search\"]");
+    	var elParentResult = este.parentNode.parentNode.getElementsByTagName("ul")[0];
 
+    	//tipo, data_client
+    	var locais = getServerProcurandoLocais( elIdParent.getAttribute("data-tipoLocal"), elText.value );
+
+    	
+
+    	//console.log( elText.value )
+    	//ResultadoLocais( elParentResult, 3, ["São Paulo", "São Paulo", "São Paulo"] , ["São Paulo, Cidade, 33", "São Paulo, Cidade, 33", "São Paulo, Cidade, 33"] );
+
+    	
+	});
     
-})(10);
+})();

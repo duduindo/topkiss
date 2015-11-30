@@ -1,13 +1,23 @@
-
+window.getServerProcurandoLocaisData;
 
 //Event on
 var On = function(attr, selector, functions)
 {	
-	[].forEach.call(document.querySelectorAll(selector), function(el) {
-	  el.addEventListener(attr, function(event) {
-	    return functions(el, event);
-	  })
-	});
+	if( typeof selector == "string" ) {
+		[].forEach.call(document.querySelectorAll(selector), function(el) {
+	  			el.addEventListener(attr, function(event) {
+	    		return functions(el, event);
+	  		})
+		});		
+	}
+
+	else {
+		[].forEach.call(selector, function(el) {
+	  			el.addEventListener(attr, function(event) {
+	    		return functions(el, event);
+	  		})
+		});
+	}
 }
 
 
@@ -46,3 +56,42 @@ var Dados = function( name, value )
 }
 
 
+//WEB STORAGE p/ VARIAVEIS GLOBAIS
+var setGlobalVariables = function() {
+
+	// PREFERENCIA
+	if( Dados("preferencias") == null ) { //Padrão
+		Dados("preferencias", JSON.stringify(window.dataPreferencias) );			
+	}
+	else {
+		window.dataPreferencias = JSON.parse( Dados("preferencias") );			
+	}
+};
+
+
+
+//Procurando locais no servidor
+var getServerProcurandoLocais = function ( tipo, data_client )
+{	
+	$.getJSON( window.servidor + "index.php?_jsonp=?", { "type":tipo, "data_client":data_client, "TYPE_SEARCH":"LOCATION" }, function() {})
+    .done(function( data ){ 
+
+    	//console.log( data )       
+    	
+    	//Modelando os dados
+    	var Qts; 
+    	var arNome = [];
+    	var arData = [];
+
+    	for(var n=0; n<Qts; n++ ) {
+    		arNome.push( data[n][ "desc_"+tipo ] );
+    		//arData.push( data[n]["desc_cidade"] );
+    	}
+
+    	console.log(arNome)
+    	//window.ResultadoLocais(  );
+    })
+    .fail(function() {       
+       alert("Erro: getServerProcurandoLocais");
+    });
+}

@@ -19,6 +19,7 @@
   </head>
   
   <body>
+  
 
 <!-- MAIN -->
 <main id="page-index">
@@ -49,11 +50,14 @@
       
         <div class="content">
           <div class="content-padded">
+          
             <form>
               <!-- MOSTRAR: HOMENS/MULHERES  -->
               <p class="color-black">Mostrar:</p>
               <div class="card">
-                <ul class="table-view">
+
+                <div id="ComponentPreferenciasSexo">
+                <!-- <ul class="table-view">
                   <li class="table-view-cell">
                     <p class="color-black pull-left">Homens</p>
                     <input type="checkbox" class="checkbox pull-right marginRight10" name="mostrar" value="homens">
@@ -62,25 +66,27 @@
                     <p class="color-black pull-left">Mulheres</p>
                     <input type="checkbox" class="checkbox pull-right marginRight10" name="mostrar" value="mulheres">
                   </li>                
-                </ul>
+                </ul> -->
+                </div>
               </div>
   
-              <!-- Sorteio por distância  -->
-              <div class="inline-block col-100 paddingTop50 ">
-                <p class="color-black pull-left">Sorteio por distância:</p>
-                <input type="radio" class="radio pull-right marginRight10" name="sorteio" value="distancia">
+                <!-- Sorteio por distância  -->
+              <div id="ComponentPreferenciasDistancia">
+                <!-- <div class="inline-block col-100 paddingTop50" >
+                  <p class="color-black pull-left">Sorteio por distância:</p>
+                  <input type="radio" class="radio pull-right marginRight10" name="sorteio" value="distancia">
+                </div>
+                
+                <div class="card">
+                  <ul class="table-view">
+                    <li class="table-view-cell">
+                      <input type="range" class="pull-left" name="km" value="100" min="1" max="100" >
+                      <p class="color-black pull-right">100km</p>
+                    </li>                                
+                  </ul>
+                </div> -->                
               </div>
-              
-              <div class="card">
-                <ul class="table-view">
-                  <li class="table-view-cell">
-  
-                    <input type="range" class="pull-left" name="km" value="100" min="1" max="100" >
-                    <p class="color-black pull-right">100km</p>
-  
-                  </li>                                
-                </ul>
-              </div><!-- ./Sorteio por distância  -->
+              <!-- ./Sorteio por distância  -->
   
   
               <!-- Sorteio por locais:  -->
@@ -92,21 +98,36 @@
               <div class="card">
                 <ul class="table-view">
                   <li class="table-view-cell">
-                    <a class="padding10" href="#ModalEscolherLocaisPreferencias">
+                    <a class="padding10" href="#PopoverTipoLocalPreferencia">
                       <span class="fa fa-pencil pull-left"></span>
                       <p class="color-black pull-left nome-localEscolhido">Brasil todo</p>
                     </a>
                   </li>                                
                 </ul>
               </div><!-- ./Sorteio por locais:  -->
+
             </form>
+
           </div><!-- ./content-padded -->
         </div>
       </div>
 
+      <!-- POPOVER Tipo local Preferencia-->
+      <div id="PopoverTipoLocalPreferencia" class="popover" >
+        <header class="bar bar-nav">
+          <h1 class="title">Tipo de local</h1>
+        </header>
+        <ul class="table-view">
+          <li class="table-view-cell" ><a href="#ModalEscolherLocaisPreferencias" data-tipoLocal="estado">Estado</a></li>
+          <li class="table-view-cell" ><a href="#ModalEscolherLocaisPreferencias" data-tipoLocal="cidade">Cidade</a></li>
+          <li class="table-view-cell" ><a href="#ModalEscolherLocaisPreferencias" data-tipoLocal="bairro">Bairro</a></li>
+          <li class="table-view-cell" ><a href="#ModalEscolherLocaisPreferencias" data-tipoLocal="escola">Escola/Facul</a></li>
+        </ul>
+      </div>
+
 
       <!-- MODAL Escolher locais (Preferências -> Escolher locais) -->
-      <div id="ModalEscolherLocaisPreferencias" class="modal">
+      <div id="ModalEscolherLocaisPreferencias" class="modal" data-tipoLocal>
         <header class="bar bar-nav">
           <a class="icon icon-left-nav color-black pull-left" href="#ModalEscolherLocaisPreferencias"></a>
           <h1 class="title text-left paddingLeft50">Escolhe um local</h1>
@@ -114,7 +135,7 @@
       
         <div class="content">
           <div class="content-padded">
-            <form>              
+            <form onsubmit="return false;">              
               <input type="search" placeholder="Estado, Cidade, Bairro, Escola ou Faculdades">              
               <button class="btn btn-block">Pesquisar</button>
             </form>
@@ -129,7 +150,7 @@
                   4 Escola ou faculdade
             -->
             <ul class="table-view">
-              <li class="table-view-cell">
+              <!-- <li class="table-view-cell">
                 <a class="navigate-right" data-escolhendoLocal="São Paulo, 1, 23" href="#ModalEscolherLocaisPreferencias">
                   São paulo
                 </a>
@@ -143,7 +164,7 @@
                 <a class="navigate-right" data-escolhendoLocal="Rio de Janeiro, 1, 19" href="#ModalEscolherLocaisPreferencias">
                   Rio de Janeiro
                 </a>
-              </li>
+              </li> -->
             </ul>
 
           </div>
@@ -405,11 +426,24 @@
 
 </main>
  
-		<script type="text/javascript" src="lib/ratchet-v2.0.2/js/ratchet.js"></script>
-      <script type="text/javascript" src="lib/jquery-2.1.3.min.js"></script>
-      <script src="lib/modernizr.custom.26039-CSS-Calc-e-Unit.js"></script> <!-- MODERNIZR CALC() E UNIT -->
-      <script type="text/javascript" src="js/functions.js"></script>
-      <script type="text/javascript" src="js/backend.js"></script>
-      <script type="text/javascript" src="js/script.js"></script>
+    <!-- MY SCRIPTS -->
+    <script type="text/javascript" src="js/defaultData.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    
+    <!-- REACT -->
+	<script src="js/build/react.js"></script>
+	<script src="js/build/react-dom.js"></script>
+	<script src="js/build/browser.min.js"></script>
+    <script type="text/babel" src="js/components.js"></script>
+
+    <!-- RATCHET e MODERNIZR -->
+	<script type="text/javascript" src="lib/ratchet-v2.0.2/js/ratchet.js"></script>
+    <script type="text/javascript" src="lib/jquery-2.1.3.min.js"></script>
+    <script src="lib/modernizr.custom.26039-CSS-Calc-e-Unit.js"></script> <!-- MODERNIZR CALC() E UNIT -->
+    
+    <!-- MY SCRIPTS -->
+    <!--script type="text/javascript" src="js/backend.js"></script--> 
+    
   </body>
 </html>
