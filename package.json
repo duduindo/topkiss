@@ -4,7 +4,9 @@
   "description": "TopKiss, um app de ranking dos mais tops.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  	"testjs": "jshint ./dev/js/",  	
+  	"tosrc":  "node to-src.js",
+  	"csssrc": "uglifycss src/style/style.css > src/style/style.min.css"  	
   },
   "keywords": [
     "html",
@@ -13,10 +15,18 @@
   ],
   "author": "Eduardo. @duduindo",
   "license": "ISC",
-  "devDependencies": {
-    "grunt": "^0.4.5"
-  },
+  "devDependencies": {},
   "dependencies": {
-    "angular2": "^2.0.0-alpha.46"
+    "commander": "^2.9.0",
+    "copyfiles": "^0.2.1",
+    "directory-copy": "^0.1.0",
+    "extend": "^3.0.0",
+    "jshint": "^2.8.0",
+    "meow": "^3.6.0",
+    "mkdirp": "^0.5.1",
+    "readdir": "0.0.13",
+    "uglifycss": "0.0.19",
+    "uglifyjs": "^2.4.10",
+    "uglifyjs-folder": "^0.2.1"
   }
 }
