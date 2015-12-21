@@ -1,3 +1,4 @@
+
 var getServerProcurandoLocaisData;
 var servidor = "http://192.168.2.100/topkiss/server/";
 
@@ -18,7 +19,7 @@ var On = function(attr, selector, functions)
 	    		return functions(el, event);
 	  		});
 		});
-	}
+	}	
 };
 
 
@@ -29,6 +30,7 @@ var AltenarMenu = function()
 {
 	var menu = document.getElementsByClassName("menu")[0];    
     menu.classList.toggle("active");
+    menu = null;
 };
 
 //Altenar o Menu
@@ -36,13 +38,15 @@ var AbrirMenu = function()
 {
 	var menu = document.getElementsByClassName("menu")[0];    
     menu.classList.add("active");
+    menu = null;
 };
 
 //Somente fechar o Menu
 var FecharMenu = function()
 {
 	var menu = document.getElementsByClassName("menu")[0];	
-	menu.classList.remove("active");    
+	menu.classList.remove("active");  
+	menu = null;  
 };
 
 //WEB STORAGE
@@ -53,7 +57,10 @@ var Dados = function( name, value )
 	}
 	else {
 		localStorage.setItem(name, value);
-	}	
+	}
+
+	name = null;
+	value = null;
 };
 
 
@@ -70,51 +77,21 @@ var setGlobalVariables = function() {
 };
 
 
-//Listando os locais AJAX
-// ul === setElementParent
-var setLocaisList = function( setJson, setElementParent ) {
-	var ar = [];
-
-	//{nome:"Rio de Janeiro", tipo:1, local:19}, {nome:"São Paulo", tipo:1, local:23}
-
-	var formatArray = function () {
-		for(var n=0; n<setJson.length; n++) {
-			console.log( setJson[n]  )
-		}
-	};
-
-	formatArray();
-
-};
-
-
-
-//data-escolhendoLocal="São Paulo, 1, 23"
-var setDataEscolhendoLocalPreferencias = function ( attribute ) {
-	var arData = attribute.split(",");
-	var nome = String(arData[0]);
-	var tipo = Number(arData[1]);
-	var local = Number(arData[2]);
-
-	window.dataPreferencias.locais.nome = nome;
-	window.dataPreferencias.locais.tipo = tipo;
-	window.dataPreferencias.locais.local = local;
-
-	//#nome-localEscolhidoPreferencias
-	document.getElementById("nome-localEscolhidoPreferencias").textContent = nome;
-};
 
 
 
 //Procurando locais no servidor
 var getServerProcurandoLocais = function ( tipo, data_client )
-{	
+{
+	//loading
+	setLocaisListLoading( document.querySelector("#ModalEscolherLocaisPreferencias .table-view") );
+
+	//Ajax
 	$.getJSON( window.servidor + "index.php?_jsonp=?", { "type":tipo, "data_client":data_client, "TYPE_SEARCH":"LOCATION" }, function() {})
     .done(function( data ){ 
-
-    	console.log(data);
-
-    	//setLocaisList(data,  document.querySelectorAll("#ModalEscolherLocaisPreferencias .table-view") );
+    	
+    	//Listando
+    	setLocaisList(data,  document.querySelector("#ModalEscolherLocaisPreferencias .table-view"), "#ModalEscolherLocaisPreferencias" );
     })
     .fail(function() {       
        alert("Erro: getServerProcurandoLocais");

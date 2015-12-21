@@ -20,7 +20,12 @@
 		var pageIndex_section = document.querySelectorAll("#page-index > section:nth-of-type(1)")[0];
 		pageIndex_section.style.width = vw + 'px';
 		pageIndex_section.style.height = (vh-60) + 'px';
-	}
+        pageIndex_section = null;
+	} 
+    else {
+        vw = null;
+        vh = null;
+    }
 
     //Localstorage para variaveis globais
     setGlobalVariables();//function.js
@@ -42,13 +47,13 @@
     		//evento.preventDefault();
     	} 	
     });
-        
-    //Alterando o paragráfo conforme o valor do 'range'
-    new On('input', '#ModalPreferencias [type="range"]', function(este, evento){    	
-    	var p = evento.target.nextElementSibling; //Detecta tag irmão
-    	p.textContent = este.value + 'km.'; //Modifica o valor
-    });
     
+    //Registrando preferencia do local
+    new On('click', '#ModalEscolherLocaisPreferencias', function(este, evento){        
+        //atributo -> [data-dados="ITAPEVI,bairro,1556"]
+        
+    });
+
     
     // Classe genérica para fechar o próprio elemento    
     new On('touchend', '.popover', function(este, evento){        
@@ -56,17 +61,20 @@
         este.classList.remove("visible");
         var backdrop = document.body.querySelector(".backdrop");
         backdrop.parentNode.removeChild(backdrop);
+        backdrop = null;
     });
     
     //alert( window.innerHeight +" "+ window.innerWidth )
     
     //Função para Escolhendo Local
-    var eventoEscolhendoLocalPreferencias = function () {
-        new On('click', '[data-escolhendoLocal]', function(este, evento){        
-            setDataEscolhendoLocalPreferencias( este.getAttribute("data-escolhendoLocal") );
+    window.eventoEscolhendoLocalPreferencias = function () {
+        new On('click', '[data-escolhendoLocal]', function(este, evento){  
+
+            //functions.js      
+            setDataEscolhendoLocalPreferencias( este.getAttribute("data-escolhendoLocal") ); 
         });
     };
-    eventoEscolhendoLocalPreferencias();
+    window.eventoEscolhendoLocalPreferencias();
     
     
     //Popstate

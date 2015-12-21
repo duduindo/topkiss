@@ -6,7 +6,7 @@ window.teste = [
 var ListItemTableViewPreferencias = React.createClass({
 	render: function() {
 		return 	<li className="table-view-cell"> 					
-					<a className="navigate-right" href="#ModalEscolherLocaisPreferencias">
+					<a className="navigate-right" href={this.props.href} data-dados={this.props.dados}>
                   		{this.props.data.nome}
                 	</a>
 				</li>;
@@ -164,6 +164,92 @@ var ComponentPreferenciasSorteio = React.createClass({
 });
 
 
+/* Preferencias -> Local Ajax */
+var ComponentPreferenciasLocal = React.createClass({
+			
+	getInitialState: function() {
+		return {
+			nome:'',
+			tipo:'todos',
+			jsonData: [{id:0, nome:"loading..."}]
+		}
+	},
+	
+	handleChange: function(event) {
+		var valor = event.target.value;
+		
+		this.setState({
+			nome:valor
+		});		
+	},
+
+			
+	setValueServer: function(e) {
+      	if(e.which == 13 || e.target.nodeName == "BUTTON") {
+      		this.componentWillMount();
+      	}
+    },
+    	
+	componentWillMount: function() {		
+		if( this.state.nome.length > 0 ) {
+			$.getJSON( window.servidor + "index.php?_jsonp=?", { "type":this.state.tipo, "data_client":this.state.nome, "TYPE_SEARCH":"LOCATION" }, function(data) {					
+				if (this.isMounted()) {
+					this.setState({
+						jsonData: data
+					});
+				}
+			}.bind(this)); 
+		}   	
+	},
+
+	render: function() {
+		var results = this.state.jsonData;
+		
+		//Loca não encontrado
+		if( results.length == 0 ) {
+			return (
+				<div className="content-padded">           	
+        	    	<input type="search" placeholder="Estado, Cidade, Bairro, Escola ou Faculdades" onChange={this.handleChange} onKeyDown={this.setValueServer} />
+        	    	<p className="btn-negative text-center"> Local não encontrado</p>
+
+        	    	<ul className="table-view" >            		
+        	    		{results.map(function(result) {
+        	  				return <ListItemTableViewPreferencias key={result.id} data={result} href="#ModalEscolherLocaisPreferencias" dados={result.nome+","+result.tipo+","+result.id}  />;
+        				})}            		
+        	    	</ul>
+        	  	</div>
+				);
+		}
+
+		//Loca encontrado
+		else if( results[0].id != 0 ) {
+			return (
+				<div className="content-padded">           	
+        	    	<input type="search" placeholder="Estado, Cidade, Bairro, Escola ou Faculdades" onChange={this.handleChange} onKeyDown={this.setValueServer} />
+        	    	        	    	
+        	    	<ul className="table-view" >            		
+        	    		{results.map(function(result) {
+        	  				return <ListItemTableViewPreferencias key={result.id} data={result} href="#ModalEscolherLocaisPreferencias" dados={result.nome+","+result.tipo+","+result.id}  />;
+        				})}            		
+        	    	</ul>
+        	  	</div>
+				);
+		}
+
+
+		else {
+			return (
+				<div className="content-padded">           	
+        	    	<input type="search" placeholder="Estado, Cidade, Bairro, Escola ou Faculdades" onChange={this.handleChange} onKeyDown={this.setValueServer} />
+        	  	</div>
+				);
+		}
+	}
+
+});
+
+
+
 
 
 /*
@@ -171,4 +257,8 @@ var ComponentPreferenciasSorteio = React.createClass({
 */
 ReactDOM.render( <ComponentPreferenciasSexo />, document.getElementById("ComponentPreferenciasSexo") );
 ReactDOM.render( <ComponentPreferenciasSorteio />, document.getElementById("ComponentPreferenciasSorteio") );
+ReactDOM.render( <ComponentPreferenciasLocal source="http://192.168.2.100/topkiss/server/" />, document.getElementById("ComponentPreferenciasLocal") );
+
+
+
 
