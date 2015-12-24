@@ -27,6 +27,8 @@
         vh = null;
     }
 
+    //localStorage.removeItem("preferencias");
+
     //Localstorage para variaveis globais
     setGlobalVariables();//function.js
 
@@ -48,12 +50,10 @@
     	} 	
     });
     
-    //Registrando preferencia do local
-    new On('click', '#ModalEscolherLocaisPreferencias', function(este, evento){        
-        //atributo -> [data-dados="ITAPEVI,bairro,1556"]
-        
+    //Backup das variaveis globais
+    new On('click', '.modal [href="#ModalPreferencias"]', function(este, evento){
+        writeGlobalBackup();        
     });
-
     
     // Classe genérica para fechar o próprio elemento    
     new On('touchend', '.popover', function(este, evento){        

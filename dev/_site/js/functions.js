@@ -76,6 +76,14 @@ var setGlobalVariables = function() {
 	}
 };
 
+//VARIAVEIS GLOBAIS p/ WEB STORAGE
+var writeGlobalBackup = function() {
+
+	Dados("preferencias", JSON.stringify(window.dataPreferencias) );
+};
+
+
+
 
 
 
