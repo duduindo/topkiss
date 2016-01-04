@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt-br" Xmanifest="appcache.manifest">
+  <head>
+    <title>Topkiss</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8">    
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <link rel="manifest" href="manifest.json">
+
+    <!-- LIB'S -->        
+    <link rel="stylesheet" href="lib/font-awesome.min.css">
+    <link rel="stylesheet" href="lib/ratchet-v2.0.2/css/ratchet.min.css">    
+    
+    <!-- Syntax Highlight -->        
+    <link rel="stylesheet" href="style/style.css">    
+
+  </head>
+  
+  <body>
+  
+
+<!-- MAIN -->
+<main id="page-meuperfil">
+
+      <!-- MODAL Configurações -->
+      <div id="ModalConfiguracoes" class="modal">
+        <header class="bar bar-nav">
+          <a class="icon icon-left-nav color-black pull-left" href="#ModalConfiguracoes"></a>
+          <h1 class="title text-left paddingLeft50">Configurações</h1>
+        </header>
+      
+        <div class="content">
+          <p class="content-padded">
+            <button class="btn btn-block">Política de privacidade</button>
+            <button class="btn btn-block">Termos de uso</button>
+            <button class="btn btn-primary btn-block">Loggoff</button>
+            <button class="btn btn-block  btn-negative">Deletar conta</button>
+          </p>
+        </div>
+      </div>
+
+      <!-- MODAL Preferências -->
+      <div id="ModalPreferencias" class="modal">
+        <header class="bar bar-nav">
+          <a class="icon icon-left-nav color-black pull-left" href="#ModalPreferencias"></a>
+          <h1 class="title text-left paddingLeft50">Preferências</h1>
+        </header>
+      
+        <div class="content">
+          <div class="content-padded">
+          
+            <form>
+              <!-- MOSTRAR: HOMENS/MULHERES  -->
+              <p class="color-black">Mostrar:</p>
+              <div class="card">
+
+                <div id="ComponentPreferenciasSexo">
+                <!-- <ul class="table-view">
+                  <li class="table-view-cell">
+                    <p class="color-black pull-left">Homens</p>
+                    <input type="checkbox" class="checkbox pull-right marginRight10" name="mostrar" value="homens">
+                  </li>
+                  <li class="table-view-cell">
+                    <p class="color-black pull-left">Mulheres</p>
+                    <input type="checkbox" class="checkbox pull-right marginRight10" name="mostrar" value="mulheres">
+                  </li>                
+                </ul> -->
+                </div>
+              </div>
+
+
+              <fieldset style="border:0; margin:0; padding:0;"  id="ComponentPreferenciasSorteio">
+
+                                
+                <!--div class="inline-block col-100 paddingTop50" >
+                  <p class="color-black pull-left">Sorteio por distância:</p>
+                  <input type="radio" class="radio pull-right marginRight10" name="sorteio" value="distancia">
+                </div>
+                
+                <div class="card">
+                  <ul class="table-view">
+                    <li class="table-view-cell">
+                      <input type="range" class="pull-left" name="km" value="100" min="1" max="100" >
+                      <p class="color-black pull-right">100km</p>
+                    </li>                                
+                  </ul>
+                </div>                
+                
+    
+    
+                
+                <div class="inline-block col-100 paddingTop50">
+                  <p class="color-black pull-left">Sorteio por locais:</p>
+                  <input type="radio" class="radio pull-right marginRight10" name="sorteio" value="locais" checked="true">
+                </div>
+                
+                <div class="card">
+                  <ul class="table-view">
+                    <li class="table-view-cell">
+                      <a class="padding10" href="#PopoverTipoLocalPreferencia">
+                        <span class="fa fa-pencil pull-left"></span>
+                        <p class="color-black pull-left nome-localEscolhido">Brasil todo</p>
+                      </a>
+                    </li>                                
+                  </ul>
+                </div-->
+              </fieldset>
+              
+
+            </form>
+
+          </div><!-- ./content-padded -->
+        </div>
+      </div>
+
+      <!-- POPOVER Tipo local Preferencia-->
+      <div id="PopoverTipoLocalPreferencia" class="popover" >
+        <header class="bar bar-nav">
+          <h1 class="title">Tipo de local</h1>
+        </header>
+        <ul class="table-view">
+          <li class="table-view-cell" ><a href="#ModalEscolherLocaisPreferencias" data-tipoLocal="estado">Estado</a></li>
+          <li class="table-view-cell" ><a href="#ModalEscolherLocaisPreferencias" data-tipoLocal="cidade">Cidade</a></li>
+          <li class="table-view-cell" ><a href="#ModalEscolherLocaisPreferencias" data-tipoLocal="bairro">Bairro</a></li>
+          <li class="table-view-cell" ><a href="#ModalEscolherLocaisPreferencias" data-tipoLocal="escola">Escola/Facul</a></li>
+        </ul>
+      </div>
+
+
+      <!-- MODAL Escolher locais (Preferências -> Escolher locais) -->
+      <div id="ModalEscolherLocaisPreferencias" class="modal" data-tipoLocal>
+        <header class="bar bar-nav">
+          <a class="icon icon-left-nav color-black pull-left" href="#ModalEscolherLocaisPreferencias"></a>
+          <h1 class="title text-left paddingLeft50">Escolhe um local</h1>
+        </header>
+      
+        <div class="content">
+          <div class="content-padded">
+            <form onsubmit="return false;">              
+              <input type="search" placeholder="Estado, Cidade, Bairro, Escola ou Faculdades">              
+              <button class="btn btn-block">Pesquisar</button>
+            </form>
+
+            <!-- 
+                  data-escolhendoLocal="São Paulo, 0, 0"
+                  data-escolhendoLocal=" Nome, Tipo, Código do local"
+                  0 Brasil todo
+                  1 Estado
+                  2 Cidade
+                  3 Bairro
+                  4 Escola ou faculdade
+            -->
+            <!-- <ul class="table-view">
+              <li class="table-view-cell">
+                <a class="navigate-right" data-escolhendoLocal="São Paulo, 1, 23" href="#ModalEscolherLocaisPreferencias">
+                  São paulo
+                </a>
+              </li>
+              <li class="table-view-cell">
+                <a class="navigate-right" data-escolhendoLocal="Carapicuíba, 2, 5000" href="#ModalEscolherLocaisPreferencias">
+                  Carapicuíba
+                </a>
+              </li>
+              <li class="table-view-cell">
+                <a class="navigate-right" data-escolhendoLocal="Rio de Janeiro, 1, 19" href="#ModalEscolherLocaisPreferencias">
+                  Rio de Janeiro
+                </a>
+              </li>
+            </ul> -->
+            <div id="ComponentEscolheLocalPreferencias">
+              
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <!-- MODAL Procurar pessoas -->
+      <div id="ModalProcurarUsuarios" class="modal">
+        <header class="bar bar-nav">
+          <a class="icon icon-left-nav color-black pull-left" href="#ModalProcurarUsuarios"></a>
+          <h1 class="title text-left paddingLeft50">Procurar usuários</h1>
+        </header>
+      
+        <div class="content">
+          <div class="content-padded">
+            <form>              
+              <input type="search" placeholder="Coloque algum nome">              
+              <button class="btn btn-block">Pesquisar</button>
+            </form>
+
+            <ul class="table-view">
+              <li class="table-view-cell media">
+                <a class="navigate-right">
+                  <img class="media-object pull-left" src="http://placehold.it/42x42">
+                  <div class="media-body paddingTop10">
+                    Nome 1
+                  </div>
+                </a>
+              </li>
+              <li class="table-view-cell media">
+                <a class="navigate-right">
+                  <img class="media-object pull-left" src="http://placehold.it/42x42">
+                  <div class="media-body paddingTop10">
+                    Nome 1
+                  </div>
+                </a>
+              </li>
+              <li class="table-view-cell media">
+                <a class="navigate-right">
+                  <img class="media-object pull-left" src="http://placehold.it/42x42">
+                  <div class="media-body paddingTop10">
+                    Nome 1
+                  </div>
+                </a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+
+
+      <!-- MODAL Editando perfil -->
+      <div id="ModalEditandoPerfil" class="modal">
+        <header class="bar bar-nav">
+          <a class="icon icon-left-nav color-black pull-left" href="#ModalEditandoPerfil"></a>
+          <h1 class="title text-left paddingLeft50">Editando perfil</h1>
+          <a class="fa fa-plus-square color-black pull-right" href="#ModalEditandoPerfil"></a>
+        </header>
+      
+        <div class="content">
+          <div class="content-padded">
+            <a href="#PopoverTipoLocal" class="color-black">
+              <button class="btn btn-block">
+                <span class="fa fa-pencil"></span>
+                Editar teus locais
+              </button>
+            </a>
+
+            <section>
+              <div class="text-center">
+                <img src="slide-2.jpg" alt="">  
+              </div>
+
+              <ul class="table-view">
+                <li class="table-view-cell">Brasil todo <button class="btn btn-link color-black"><strong>1222265º</strong></button></li>
+                <li class="table-view-cell">São Paulo <button class="btn btn-link color-black"><strong>1222º</strong></button></li>
+                <li class="table-view-cell">Carapicuíba <button class="btn btn-link color-black"><strong>1115º</strong></button></li>
+                <li class="table-view-cell">Vila Menck <button class="btn btn-link color-black"><strong>111º</strong></button></li>
+                <li class="table-view-cell">Uninove Barra funda <button class="btn btn-link color-black"><strong>11º</strong></button></li>
+                <li class="table-view-cell">Distância de 100Km <button class="btn btn-link color-black"><strong>9º</strong></button></li>      
+              </ul>             
+
+              <button class="btn btn-negative">Deletar foto</button>
+            </section>
+
+
+            <section>
+              <div class="text-center">
+                <img src="slide-2.jpg" alt="">  
+              </div>
+
+              <ul class="table-view">
+                <li class="table-view-cell">Brasil todo <button class="btn btn-link color-black"><strong>1222265º</strong></button></li>
+                <li class="table-view-cell">São Paulo <button class="btn btn-link color-black"><strong>1222º</strong></button></li>
+                <li class="table-view-cell">Carapicuíba <button class="btn btn-link color-black"><strong>1115º</strong></button></li>
+                <li class="table-view-cell">Vila Menck <button class="btn btn-link color-black"><strong>111º</strong></button></li>
+                <li class="table-view-cell">Uninove Barra funda <button class="btn btn-link color-black"><strong>11º</strong></button></li>
+                <li class="table-view-cell">Distância de 100Km <button class="btn btn-link color-black"><strong>9º</strong></button></li>      
+              </ul>             
+
+              <button class="btn btn-negative">Deletar foto</button>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- POPOVER Tipo local -->
+      <div id="PopoverTipoLocal" class="popover" >
+        <header class="bar bar-nav">
+          <h1 class="title">Tipo de local</h1>
+        </header>
+        <ul class="table-view">
+          <li class="table-view-cell" ><a href="#ModalProcurarLocal">Estado</a></li>
+          <li class="table-view-cell" ><a href="#ModalProcurarLocal">Cidade</a></li>
+          <li class="table-view-cell" ><a href="#ModalProcurarLocal">Bairro</a></li>
+          <li class="table-view-cell" ><a href="#ModalProcurarLocal">Escola/Facul</a></li>
+        </ul>
+      </div>
+
+
+      <!-- MODAL Procurar local -->
+      <div id="ModalProcurarLocal" class="modal">
+        <header class="bar bar-nav">
+          <a class="icon icon-left-nav color-black pull-left" href="#ModalProcurarLocal"></a>
+          <h1 class="title text-left paddingLeft50">Procurar </h1>
+        </header>
+      
+        <div class="content">
+          <div class="content-padded">
+            <form>              
+              <input type="search" placeholder="Coloque algum nome">              
+              <button class="btn btn-block">Pesquisar</button>
+            </form>
+
+            <ul class="table-view">
+              <li class="table-view-cell media">
+                <a class="navigate-right">
+                  <img class="media-object pull-left" src="http://placehold.it/42x42">
+                  <div class="media-body paddingTop10">
+                    Nome 1
+                  </div>
+                </a>
+              </li>
+              <li class="table-view-cell media">
+                <a class="navigate-right">
+                  <img class="media-object pull-left" src="http://placehold.it/42x42">
+                  <div class="media-body paddingTop10">
+                    Nome 1
+                  </div>
+                </a>
+              </li>
+              <li class="table-view-cell media">
+                <a class="navigate-right">
+                  <img class="media-object pull-left" src="http://placehold.it/42x42">
+                  <div class="media-body paddingTop10">
+                    Nome 1
+                  </div>
+                </a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+
+<!-- MENU -->
+  <aside class="menu">
+    <section>
+
+      <ul class="table-view">
+        <li class="table-view-cell media">
+          <a class="navigate-right" href="meuperfil.html" data-ignore="push">
+            
+            <div class="media-object pull-left text-center"><span class="fa fa-user"></span></div>
+            <div class="media-body">
+              <p>Fulano</p>
+            </div>
+          </a>
+        </li>
+        <li class="table-view-cell media">
+          <a class="navigate-right" href="index.html" data-ignore="push">
+            
+            <div class="media-object pull-left text-center"><span class="fa fa-home"></span></div>
+            <div class="media-body">
+              <p>Home</p>
+            </div>
+          </a>
+        </li>
+        <li class="table-view-cell media">
+          <a class="navigate-right" href="ranking.html" data-ignore="push">
+            
+            <div class="media-object pull-left text-center"><span class="fa fa-signal"></span></div>
+            <div class="media-body">
+              <p>Ranking</p>
+            </div>
+          </a>
+        </li>
+        <li class="table-view-cell media">
+          <a class="navigate-right" href="#ModalPreferencias">
+            
+            <div class="media-object pull-left text-center"><span class="fa fa-sliders"></span></div>
+            <div class="media-body">
+              <p>Preferências</p>
+            </div>
+          </a>
+        </li>
+        <li class="table-view-cell media">
+          <a class="navigate-right" href="#ModalProcurarUsuarios">
+            
+            <div class="media-object pull-left text-center"><span class="fa fa-search"></span></div>
+            <div class="media-body">
+              <p>Procurar</p>
+            </div>
+          </a>
+        </li>
+        <li class="table-view-cell media">
+          <a class="navigate-right" href="#ModalConfiguracoes">
+            
+            <div class="media-object pull-left text-center"><span class="fa fa-wrench"></span></div>
+            <div class="media-body">
+              <p>Configurações</p>
+            </div>
+          </a>
+        </li>
+      </ul>
+
+    </section>
+  </aside>
+
+  <!-- HEADER -->
+  <header class="bar bar-nav">
+
+    <button class="btn btn-link color-black btn-nav pull-right alternar-menu" >
+      <span class="icon icon-more-vertical"></span>
+    </button>
+
+    <button class="btn btn-link color-black btn-nav pull-right">            
+      <span class="fa fa-bell"></span>
+    </button>
+
+    <button class="btn btn-link color-black btn-nav pull-right" >
+      <a href="#ModalEditandoPerfil"><span class="fa fa-pencil"></span></a>
+    </button>
+    <h1 class="title text-left paddingLeft10">Fulano Sicrano</h1>
+  </header>
+
+
+  <section class="content">
+
+    <article>
+      <ul class="table-view">
+        <li class="table-view-cell">Brasil todo <button class="btn btn-link color-black"><strong>1222265º</strong></button></li>
+        <li class="table-view-cell">São Paulo <button class="btn btn-link color-black"><strong>1222º</strong></button></li>
+        <li class="table-view-cell">Carapicuíba <button class="btn btn-link color-black"><strong>1115º</strong></button></li>
+        <li class="table-view-cell">Vila Menck <button class="btn btn-link color-black"><strong>111º</strong></button></li>
+        <li class="table-view-cell">Uninove Barra funda <button class="btn btn-link color-black"><strong>11º</strong></button></li>
+        <li class="table-view-cell">Distância de 100Km <button class="btn btn-link color-black"><strong>9º</strong></button></li>      
+      </ul>
+    </article>
+
+    <article>    
+      <div class="slider slider-altura-regulada" id="slider-perfil">
+        <div class="slide-group">
+          <div class="slide">
+            <img src="slide-1.jpg">            
+          </div>
+          <div class="slide">
+            <img src="slide-2.jpg">
+          </div>
+          <div class="slide">
+            <img src="slide-3.jpg">
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article>
+      <h5 class="paddingSide10">Sobre mim</h5>
+        <p class="paddingSide10"> 
+            It is a long established fact
+            that a reader will be distracted
+            by the readable content of a page when
+            looking at its layout. The point of using Lorem
+            Ipsum is that it has a more-or-less normal
+            distribution of letters, as opposed to
+            using 'Content here, content here',
+            making it look like readable English.
+        </p>
+    </article>
+
+  </section>
+
+
+
+      
+
+
+
+</main>
+ 
+    <!-- MY SCRIPTS -->
+    <script type="text/javascript" src="js/defaultData.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/events.js"></script>
+    
+    <!-- REACT -->
+	<script src="js/build/react.js"></script>
+	<script src="js/build/react-dom.js"></script>
+	<script src="js/build/browser.min.js"></script>
+    <script type="text/babel" src="js/components.js"></script>
+
+    <!-- RATCHET e MODERNIZR -->
+	<script type="text/javascript" src="lib/ratchet-v2.0.2/js/ratchet.js"></script>
+    <script type="text/javascript" src="lib/jquery-2.1.3.min.js"></script>
+    <script src="lib/modernizr.custom.26039-CSS-Calc-e-Unit.js"></script> <!-- MODERNIZR CALC() E UNIT -->
+    
+    <!-- MY SCRIPTS -->
+    <!--script type="text/javascript" src="js/backend.js"></script--> 
+    
+  </body>
+</html>
