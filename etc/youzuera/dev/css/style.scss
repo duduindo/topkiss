@@ -1,0 +1,25 @@
+
+
+.modal {	
+	background-color: #fff;
+	bottom: 0;
+	height: 0vh;
+	overflow-y: auto;
+	position: fixed;
+	transition: height .25s;
+	width: 100vw;
+	z-index: 4;
+
+	&.is-visible {
+		height: 100vh;
+	}
+
+	.material-icons {
+		font-size: 48px;
+		margin: 4px;
+	}
+
+	header {
+				
+	}
+}

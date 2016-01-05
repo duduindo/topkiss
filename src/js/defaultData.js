@@ -13,7 +13,7 @@ window.dataPreferencias = {
 
 	"locais": {		
 		"nome": "Brasil todo",
-		"tipo": 0,
-		"local": 0
+		"tipo": "pais",
+		"id": 0
 	}
 };

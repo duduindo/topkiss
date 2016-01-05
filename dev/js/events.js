@@ -66,17 +66,6 @@
     
     //alert( window.innerHeight +" "+ window.innerWidth )
     
-    //Função para Escolhendo Local
-    window.eventoEscolhendoLocalPreferencias = function () {
-        new On('click', '[data-escolhendoLocal]', function(este, evento){  
-
-            //functions.js      
-            setDataEscolhendoLocalPreferencias( este.getAttribute("data-escolhendoLocal") ); 
-        });
-    };
-    window.eventoEscolhendoLocalPreferencias();
-    
-    
     //Popstate
     window.addEventListener('popstate', function(event) {   		
     }, false);

@@ -1,5 +1,6 @@
-window.getServerProcurandoLocaisData;
-window.servidor = "http://192.168.2.100/topkiss/server/"
+
+var getServerProcurandoLocaisData;
+var servidor = "http://192.168.2.100/topkiss/server/";
 
 //Event on
 var On = function(attr, selector, functions)
@@ -8,7 +9,7 @@ var On = function(attr, selector, functions)
 		[].forEach.call(document.querySelectorAll(selector), function(el) {
 	  			el.addEventListener(attr, function(event) {
 	    		return functions(el, event);
-	  		})
+	  		});
 		});		
 	}
 
@@ -16,10 +17,10 @@ var On = function(attr, selector, functions)
 		[].forEach.call(selector, function(el) {
 	  			el.addEventListener(attr, function(event) {
 	    		return functions(el, event);
-	  		})
+	  		});
 		});
-	}
-}
+	}	
+};
 
 
 /* MANIPULAÇÕES NO MENU
@@ -29,39 +30,45 @@ var AltenarMenu = function()
 {
 	var menu = document.getElementsByClassName("menu")[0];    
     menu.classList.toggle("active");
-}
+    menu = null;
+};
 
 //Altenar o Menu
 var AbrirMenu = function()
 {
 	var menu = document.getElementsByClassName("menu")[0];    
     menu.classList.add("active");
-}
+    menu = null;
+};
 
 //Somente fechar o Menu
 var FecharMenu = function()
 {
 	var menu = document.getElementsByClassName("menu")[0];	
-	menu.classList.remove("active");    
-}
+	menu.classList.remove("active");  
+	menu = null;  
+};
 
 //WEB STORAGE
 var Dados = function( name, value )
 {	
 	if( typeof(value) == "undefined" ) {
-		return localStorage.getItem(name);
-		return false;
+		return localStorage.getItem(name);		
+	}
+	else {
+		localStorage.setItem(name, value);
 	}
 
-	localStorage.setItem(name, value);	
-}
+	name = null;
+	value = null;
+};
 
 
 //WEB STORAGE p/ VARIAVEIS GLOBAIS
 var setGlobalVariables = function() {
 
 	// PREFERENCIA
-	if( Dados("preferencias") == null ) { //Padrão
+	if( Dados("preferencias") === null ) { //Padrão
 		Dados("preferencias", JSON.stringify(window.dataPreferencias) );			
 	}
 	else {
@@ -69,34 +76,32 @@ var setGlobalVariables = function() {
 	}
 };
 
+//VARIAVEIS GLOBAIS p/ WEB STORAGE
+var writeGlobalBackup = function() {
 
-//data-escolhendoLocal="São Paulo, 1, 23"
-var setDataEscolhendoLocalPreferencias = function ( attribute ) {
-	var arData = attribute.split(",");
-	var nome = String(arData[0]);
-	var tipo = Number(arData[1]);
-	var local = Number(arData[2]);
+	Dados("preferencias", JSON.stringify(window.dataPreferencias) );
+};
 
-	window.dataPreferencias.locais.nome = nome;
-	window.dataPreferencias.locais.tipo = tipo;
-	window.dataPreferencias.locais.local = local;
 
-	//#nome-localEscolhidoPreferencias
-	document.getElementById("nome-localEscolhidoPreferencias").textContent = nome;
-}
+
+
 
 
 
 //Procurando locais no servidor
 var getServerProcurandoLocais = function ( tipo, data_client )
-{	
+{
+	//loading
+	setLocaisListLoading( document.querySelector("#ModalEscolherLocaisPreferencias .table-view") );
+
+	//Ajax
 	$.getJSON( window.servidor + "index.php?_jsonp=?", { "type":tipo, "data_client":data_client, "TYPE_SEARCH":"LOCATION" }, function() {})
     .done(function( data ){ 
     	
-    	console.log(data)
-    	//window.ResultadoLocais(  );
+    	//Listando
+    	setLocaisList(data,  document.querySelector("#ModalEscolherLocaisPreferencias .table-view"), "#ModalEscolherLocaisPreferencias" );
     })
     .fail(function() {       
        alert("Erro: getServerProcurandoLocais");
     });
-}
+};

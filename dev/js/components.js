@@ -1,4 +1,4 @@
-//Rachet -> .table-view
+//Rachet -> .table-view Com link
 var ListItemTableViewPreferencias = React.createClass({
 
 	Click: function(event) {
@@ -21,6 +21,19 @@ var ListItemTableViewPreferencias = React.createClass({
                   		{this.props.data.nome}
                 	</a>
 				</li>;
+	}
+});
+
+
+//Rachet -> .table-view somente botão
+var ListItemTableViewPerfil = React.createClass({	
+
+	render: function() {
+		return 	(
+			<li className="table-view-cell">{this.props.nome}
+				<button className="btn btn-link color-black"><strong> {this.props.rank} </strong></button>
+			</li>      
+			);
 	}
 });
 
@@ -263,6 +276,50 @@ var ComponentPreferenciasLocal = React.createClass({
 
 
 
+/*
+	PERFIL -> Ranking
+*/
+var ComponentPerfilRanking = React.createClass({
+
+	getInitialState: function() {
+		return {
+			nomeEstado: 'loading..',
+			nomeCidade: 'loading..',
+			nomeBairro: 'loading..',
+			nomeEscola: 'loading..',
+			nomeGps: 'loading..',
+			rankTodo: 'loading..',
+			rankEstado: 'loading..',
+			rankCidade: 'loading..',
+			rankBairro: 'loading..',
+			rankEscola: 'loading..',
+			rankGps: 'loading..',
+			jsonData: [{id:0, nome:"loading..."}]
+		}
+	},
+
+	componentWillMount: function() {		
+		$.getJSON( window.servidor + "index.php?_jsonp=?", { "data_client":"9223372036854775807", "TYPE_SEARCH":"GETINFOFULL" }, function(data) {					
+			if (this.isMounted()) {
+				this.setState({
+					jsonData: data
+				});				
+			}
+		}.bind(this));
+	},
+
+	render: function() {
+
+		return (
+			<ul className="table-view">
+        		
+      		</ul>
+      	);
+	}
+
+});
+
+
 
 
 /*
@@ -271,6 +328,7 @@ var ComponentPreferenciasLocal = React.createClass({
 ReactDOM.render( <ComponentPreferenciasSexo />, document.getElementById("ComponentPreferenciasSexo") );
 ReactDOM.render( <ComponentPreferenciasSorteio />, document.getElementById("ComponentPreferenciasSorteio") );
 ReactDOM.render( <ComponentPreferenciasLocal />, document.getElementById("ComponentPreferenciasLocal") );
+ReactDOM.render( <ComponentPerfilRanking />, document.getElementById("ComponentPerfilRanking") );
 
 
 

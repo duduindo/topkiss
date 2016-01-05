@@ -136,45 +136,24 @@
           <h1 class="title text-left paddingLeft50">Escolhe um local</h1>
         </header>
       
-        <div class="content">
-          <div class="content-padded">
+        <div class="content" id="ComponentPreferenciasLocal">
+          <!-- <div class="content-padded">
             <form onsubmit="return false;">              
               <input type="search" placeholder="Estado, Cidade, Bairro, Escola ou Faculdades">              
               <button class="btn btn-block">Pesquisar</button>
             </form>
 
-            <!-- 
-                  data-escolhendoLocal="São Paulo, 0, 0"
-                  data-escolhendoLocal=" Nome, Tipo, Código do local"
-                  0 Brasil todo
-                  1 Estado
-                  2 Cidade
-                  3 Bairro
-                  4 Escola ou faculdade
-            -->
-            <!-- <ul class="table-view">
+            
+            <ul class="table-view">
               <li class="table-view-cell">
-                <a class="navigate-right" data-escolhendoLocal="São Paulo, 1, 23" href="#ModalEscolherLocaisPreferencias">
+                <a class="navigate-right" data-escolhendoLocalPreferencias="São Paulo, estado, 23" href="#ModalEscolherLocaisPreferencias">
                   São paulo
                 </a>
               </li>
-              <li class="table-view-cell">
-                <a class="navigate-right" data-escolhendoLocal="Carapicuíba, 2, 5000" href="#ModalEscolherLocaisPreferencias">
-                  Carapicuíba
-                </a>
-              </li>
-              <li class="table-view-cell">
-                <a class="navigate-right" data-escolhendoLocal="Rio de Janeiro, 1, 19" href="#ModalEscolherLocaisPreferencias">
-                  Rio de Janeiro
-                </a>
-              </li>
-            </ul> -->
-            <div id="ComponentEscolheLocalPreferencias">
-              
-            </div>
-
-          </div>
+            </ul>
+          </div> -->
         </div>
+
       </div>
 
 
@@ -476,6 +455,12 @@
 
 </main>
  
+    <!-- RATCHET e MODERNIZR -->
+    <script type="text/javascript" src="lib/ratchet-v2.0.2/js/ratchet.js"></script>
+    <script type="text/javascript" src="lib/jquery-2.1.3.min.js"></script>
+    <script src="lib/modernizr.custom.26039-CSS-Calc-e-Unit.js"></script> <!-- MODERNIZR CALC() E UNIT -->
+
+
     <!-- MY SCRIPTS -->
     <script type="text/javascript" src="js/defaultData.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
@@ -487,10 +472,7 @@
 	<script src="js/build/browser.min.js"></script>
     <script type="text/babel" src="js/components.js"></script>
 
-    <!-- RATCHET e MODERNIZR -->
-	<script type="text/javascript" src="lib/ratchet-v2.0.2/js/ratchet.js"></script>
-    <script type="text/javascript" src="lib/jquery-2.1.3.min.js"></script>
-    <script src="lib/modernizr.custom.26039-CSS-Calc-e-Unit.js"></script> <!-- MODERNIZR CALC() E UNIT -->
+    
     
     <!-- MY SCRIPTS -->
     <!--script type="text/javascript" src="js/backend.js"></script--> 

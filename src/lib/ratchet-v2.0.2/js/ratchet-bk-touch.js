@@ -38,7 +38,7 @@
     }
   };
 
-  window.addEventListener('click', function (event) {
+  window.addEventListener('touchend', function (event) {
     var modal = getModal(event);
     if (modal) {
       if (modal && modal.classList.contains('modal')) {
@@ -85,7 +85,7 @@
 
     element.classList.add('backdrop');
 
-    element.addEventListener('click', function () {
+    element.addEventListener('touchend', function () {
       popover.addEventListener('webkitTransitionEnd', onPopoverHidden);
       popover.classList.remove('visible');
       popover.parentNode.removeChild(backdrop);
@@ -133,7 +133,7 @@
     popover.parentNode.appendChild(backdrop);
   };
 
-  window.addEventListener('click', showHidePopover);
+  window.addEventListener('touchend', showHidePopover);
 
 }());
 
@@ -614,7 +614,7 @@
 
   window.addEventListener('touchstart', function () { isScrolling = false; });
   window.addEventListener('touchmove', function () { isScrolling = true; });
-  window.addEventListener('click', touchend);
+  window.addEventListener('touchend', touchend);
   window.addEventListener('click', function (e) { if (getTarget(e)) {e.preventDefault();} });
   window.addEventListener('popstate', popstate);
   window.PUSH = PUSH;
@@ -645,7 +645,7 @@
     }
   };
 
-  window.addEventListener('click', function (e) {
+  window.addEventListener('touchend', function (e) {
     var activeTab;
     var activeBodies;
     var targetBody;
@@ -820,7 +820,7 @@
 
   window.addEventListener('touchstart', onTouchStart);
   window.addEventListener('touchmove', onTouchMove);
-  window.addEventListener('click', onTouchEnd);
+  window.addEventListener('touchend', onTouchEnd);
 
 }());
 
@@ -910,7 +910,7 @@
     toggle.classList[(distanceX > (toggleWidth / 2 - handleWidth / 2)) ? 'add' : 'remove']('active');
   });
 
-  window.addEventListener('click', function (e) {
+  window.addEventListener('touchend', function (e) {
     if (!toggle) {
       return;
     }
