@@ -1,16 +1,154 @@
+@charset "UTF-8";
+body {
+  background-color: #fdfcfb; }
+
+.flex-center, #page-inicio > article .loading-play, #page-inicio > article .status, .modal > article .loading-play, .modal > article .status {
+  -webkit-align-items: center;
+  align-items: center;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center; }
+
+.text-left {
+  text-align: left; }
+
+.text-right {
+  text-align: right; }
+
+.text-center {
+  text-align: center; }
+
+.no-margin {
+  margin: 0 !important; }
+
+.no-padding {
+  padding: 0 !important; }
+
+#page-inicio {
+  /* Situa├º├úo do arquivo */ }
+  #page-inicio [data-file-status="down"] .status.down {
+    display: flex; }
+  #page-inicio [data-file-status="load"] .status.load {
+    display: flex; }
+  #page-inicio [data-file-status="play"] .status.play {
+    display: flex; }
+  #page-inicio .combo-file {
+    background-color: #fff;
+    border-left: 10px solid #fdfcfb;
+    border-right: 10px solid #fdfcfb;
+    box-shadow: 4px 5px 8px #C7C7C7;
+    margin-bottom: 30px; }
+  #page-inicio > article {
+    height: calc(100vh - 56px);
+    overflow-y: auto; }
+    #page-inicio > article .previa-file {
+      position: relative; }
+      #page-inicio > article .previa-file img {
+        width: 100%; }
+    #page-inicio > article .loading-play {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%; }
+    #page-inicio > article .status {
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 20px;
+      color: #fff; }
+      #page-inicio > article .status .material-icons {
+        margin: 0;
+        padding: 0; }
+      #page-inicio > article .status.down {
+        display: none;
+        height: 40px;
+        min-width: 90px; }
+      #page-inicio > article .status.load {
+        display: none;
+        border-radius: 5px;
+        height: 40px;
+        padding: 0 10px;
+        position: relative;
+        width: auto; }
+      #page-inicio > article .status.play {
+        display: none;
+        height: 40px;
+        width: 40px; }
+
+/*
+	Modal
+*/
 .modal {
-  background-color: #fff;
+  background-color: #f5f4f4;
   bottom: 0;
   height: 0vh;
   overflow-y: auto;
   position: fixed;
   transition: height .25s;
   width: 100vw;
-  z-index: 4; }
+  z-index: 4;
+  /* Situa├º├úo do arquivo */ }
   .modal.is-visible {
     height: 100vh; }
   .modal .material-icons {
-    font-size: 48px;
+    font-size: 30px;
+    padding: 6px;
     margin: 4px; }
+  .modal > header {
+    -webkit-align-items: center;
+    align-items: center;
+    background-color: #3f51b5;
+    color: #fff;
+    display: -webkit-flex;
+    display: flex;
+    height: 56px;
+    padding: 0 5px; }
+  .modal [data-file-status="down"] .status.down {
+    display: flex; }
+  .modal [data-file-status="load"] .status.load {
+    display: flex; }
+  .modal [data-file-status="play"] .status.play {
+    display: flex; }
+  .modal .combo-file {
+    background-color: #fff;
+    border-left: 10px solid #fdfcfb;
+    border-right: 10px solid #fdfcfb;
+    box-shadow: 4px 5px 8px #C7C7C7;
+    margin-bottom: 30px; }
+  .modal > article {
+    height: calc(100vh - 56px);
+    overflow-y: auto; }
+    .modal > article .previa-file {
+      position: relative; }
+      .modal > article .previa-file img {
+        width: 100%; }
+    .modal > article .loading-play {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%; }
+    .modal > article .status {
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 20px;
+      color: #fff; }
+      .modal > article .status .material-icons {
+        margin: 0;
+        padding: 0; }
+      .modal > article .status.down {
+        display: none;
+        height: 40px;
+        min-width: 90px; }
+      .modal > article .status.load {
+        display: none;
+        border-radius: 5px;
+        height: 40px;
+        padding: 0 10px;
+        position: relative;
+        width: auto; }
+      .modal > article .status.play {
+        display: none;
+        height: 40px;
+        width: 40px; }
 
 /*# sourceMappingURL=style.css.map */

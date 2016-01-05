@@ -1,8 +1,117 @@
+body {
+	background-color: rgb(253, 252, 251);
+}
+
+.flex-center {
+	-webkit-align-items: center;
+		align-items: center;			
+	display: -webkit-flex;
+		display: flex;
+	-webkit-justify-content: center;
+		justify-content: center;
+}
+
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+.no-margin { margin:0 !important; }
+.no-padding { padding:0 !important; }
 
 
+@mixin combo-preview {
+	/* Situação do arquivo */
+	[data-file-status="down"] {
+		.status.down {
+			display: flex;
+		}
+	}
+	[data-file-status="load"] {
+		.status.load {
+			display: flex;
+		}
+	}
+	[data-file-status="play"] {
+		.status.play {
+			display: flex;
+		}
+	}
+
+	.combo-file {
+		background-color: #fff;
+		border-left:10px solid rgb(253, 252, 251);
+		border-right:10px solid rgb(253, 252, 251);
+		box-shadow: 4px 5px 8px #C7C7C7;
+		margin-bottom: 30px;
+	}
+
+	& > article {		
+		height: calc(100vh - 56px);
+		overflow-y: auto; 
+
+		.previa-file {
+			position: relative;
+			
+			img {
+				width: 100%;
+			}			
+		}
+
+		.loading-play {
+			@extend .flex-center;
+			height: 100%;			
+			left:0;
+			position: absolute;
+			top:0;
+			width: 100%;
+		}
+
+		.status {
+			@extend .flex-center;		
+			background-color: rgba(0,0,0, .7);
+			border-radius: 20px;
+			color: #fff;			
+						
+			.material-icons {
+				margin:0;
+				padding:0;
+			}
+
+			&.down {
+				display: none;
+				height: 40px;
+				min-width: 90px;
+			}
+
+			&.load {
+				display: none;				
+				border-radius: 5px;
+				height: 40px;
+				padding: 0 10px;
+				position: relative;
+				width: auto;				
+			}
+
+			&.play {
+				display: none;
+				height: 40px;
+				width: 40px;
+			}
+		}
+	}//.article
+}
+
+
+#page-inicio {
+	@include combo-preview;	
+}
+
+
+/*
+	Modal
+*/
 .modal {	
-	background-color: #fff;
-	bottom: 0;
+	background-color: rgb(245, 244, 244);
+	bottom: 0;	
 	height: 0vh;
 	overflow-y: auto;
 	position: fixed;
@@ -15,11 +124,21 @@
 	}
 
 	.material-icons {
-		font-size: 48px;
+		font-size: 30px;
+		padding: 6px;
 		margin: 4px;
 	}
 
-	header {
-				
+	& > header {
+		-webkit-align-items: center;
+			align-items: center;
+		background-color: rgb(63,81,181);
+		color: #fff;
+		display: -webkit-flex;
+			display: flex;
+		height: 56px;	
+		padding:0 5px;
 	}
+
+	@include combo-preview;	
 }
