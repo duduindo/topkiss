@@ -18,116 +18,143 @@
    - Modal
    -	Favoritos   
    -->
-<section class="modal is-visible" id="modal-favoritos">
+<section class="modal" id="modal-favoritos">
   	<!-- Header modal -->  
     <header>
       <i class="material-icons" role="presentation">arrow_back</i>      
        <span class="mdl-layout-title">Meus Favoritos</span>  
-  </header>
+  	</header>
 
-  <!-- Content modal -->  
-  <article>
+  	<!-- COMBO 1 -->
+    <article class="main-preview" data-file-status="down" data-file-type="video" data-file="files/1.mp4">            
+      <div class="combo-preview">
+        <img src="files/1.jpg" alt="">
+        <div class="main-status">
+          <div class="preview-status">
+            <div class="preview-status-play">
+              <i class="material-icons">&#xE037;</i>
+            </div>
+            <div class="preview-status-load">
+              <progress value="22" max="100"></progress>
+              <i class="material-icons">&#xE5CD;</i>
+            </div>
+            <div class="preview-status-down">                    
+              <i class="material-icons">&#xE154;</i> <span>1,2 MB</span>
+            </div>
+          </div>
+          <div class="preview-tempo">
+            <i class="material-icons">&#xE04B;</i><span>00:56</span>
+          </div>
+        </div>
+      </div> <!-- ./combo-preview -->
+      
+      <div class="mdl-grid mdl-grid--no-spacing">
+        <div class="mdl-cell mdl-cell--12-col"><span>teste</span></div>
+        <div class="mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet" style="line-height: 30px;"><span>1215515 <small>visualizações</small></span></div>
+        <div class="mdl-cell mdl-cell--1-col mdl-cell--2-col-tablet text-right">                
+          <button class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">&#xE2C4;</i>
+          </button>
+          <button class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">&#xE15C;</i>
+          </button>
+        </div>
+        <div class="mdl-cell mdl-cell--12-col" style="line-height: 30px;">
+          <span>
+            <a href="#">Fulano</a>
+          </span>
+        </div>
+      </div>            
+    </article>
+    <!-- ./COMBO 1 -->   
 
-  <!-- BOX 1 -->  
-   	<div class="mdl-grid combo-file">
-  		<div class="mdl-cell  mdl-cell--12-col" data-file-status="play" data-file="files/1.mp4">  			
-  			<div class="previa-file">
-  				<img src="files/1.jpg" alt="">
-
-  				<div class="loading-play">  					
-  					<div class="status down">
-  						<i class="material-icons" role="presentation">arrow_drop_down</i>
-  						<span>2,8MB</span>
-  					</div>
-  					<div class="status load">  						
-  						<div>
-  							<progress value="22" max="100"></progress>
-  						</div>  						
-  						<i class="material-icons" role="presentation">close</i>
-  					</div>
-  					<div class="status play">
-  						<i class="material-icons" role="presentation">play_arrow</i>  						
-  					</div>
-  				</div>
-
-  			</div>
-			<div>
-				<div class="mdl-grid mdl-grid--no-spacing">
-					<div class="mdl-cell  mdl-cell--12-col">
-						Um comentário aqui
-					</div>
-					<div class="mdl-cell  mdl-cell--2-col mdl-cell--4-col-tablet">
-						10214 <small>views</small>
-					</div>
-					<div class="mdl-cell  mdl-cell--2-col mdl-cell--4-col-tablet text-right">
-						1021401 <small>downloads</small>
-					</div>
-
-					<div class="mdl-cell  mdl-cell--2-col mdl-cell--4-col-tablet">
-						<a href="#">Eduardo</a>
-					</div>
-					<div class="mdl-cell  mdl-cell--2-col mdl-cell--4-col-tablet text-right">
-						<i class="material-icons no-padding" role="presentation">file_download</i>
-						<i class="material-icons no-padding" role="presentation">favorite</i>
-					</div>
-				</div>
-			</div>
-  		</div>
-  	</div>
-  	<!-- ./BOX 1 -->  
-
-  	<!-- BOX 2 -->  
-   	<div class="mdl-grid combo-file">
-  		<div class="mdl-cell  mdl-cell--12-col" data-file-status="play" data-file="files/1.mp4">  			
-  			<div class="previa-file">
-  				<img src="files/1.jpg" alt="">
-
-  				<div class="loading-play">  					
-  					<div class="status down">
-  						<i class="material-icons" role="presentation">arrow_drop_down</i>
-  						<span>2,8MB</span>
-  					</div>
-  					<div class="status load">  						
-  						<div>
-  							<progress value="22" max="100"></progress>
-  						</div>  						
-  						<i class="material-icons" role="presentation">close</i>
-  					</div>
-  					<div class="status play">
-  						<i class="material-icons" role="presentation">play_arrow</i>  						
-  					</div>
-  				</div>
-
-  			</div>
-			<div>
-				<div class="mdl-grid mdl-grid--no-spacing">
-					<div class="mdl-cell  mdl-cell--12-col">
-						Um comentário aqui
-					</div>
-					<div class="mdl-cell  mdl-cell--2-col mdl-cell--4-col-tablet">
-						10214 <small>views</small>
-					</div>
-					<div class="mdl-cell  mdl-cell--2-col mdl-cell--4-col-tablet text-right">
-						1021401 <small>downloads</small>
-					</div>
-
-					<div class="mdl-cell  mdl-cell--2-col mdl-cell--4-col-tablet">
-						<a href="#">Eduardo</a>
-					</div>
-					<div class="mdl-cell  mdl-cell--2-col mdl-cell--4-col-tablet text-right">
-						<i class="material-icons no-padding" role="presentation">file_download</i>
-						<i class="material-icons no-padding" role="presentation">favorite</i>
-					</div>
-				</div>
-			</div>
-  		</div>
-  	</div>
-  	<!-- ./BOX 2 -->  
-
-
-  </article>
+  
 </section>
 
+
+
+
+
+
+
+<!--
+   - Modal
+   -	Envie   
+   -->
+<section class="modal" id="modal-envie">
+  	<!-- Header modal -->  
+    <header>
+      <i class="material-icons" role="presentation">arrow_back</i>      
+       <span class="mdl-layout-title">Envie aquela zueira</span>  
+  	</header>
+
+  	 <article>
+  	 	<div class="mdl-grid">  	 		
+            <div class="mdl-cell mdl-cell--12-col">
+            	<!-- Floating Multiline Textfield -->
+				<form action="#">
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				  	  <input class="mdl-textfield__input" type="text" id="envie-zueira-categoria">
+				  	  <label class="mdl-textfield__label" for="envie-zueira-categoria">Categoria</label>
+				  	</div>
+				  	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				  	  <input class="mdl-textfield__input" type="text" id="envie-zueira-titulo">
+				  	  <label class="mdl-textfield__label" for="envie-zueira-titulo">Título</label>
+				  	</div>
+				  	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+				  	  <input class="mdl-textfield__input" type="file" id="envie-zueira-titulo">				    
+				  	</div>
+				  	<!-- Raised button with ripple -->
+					<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+					  Enviar
+					</button>
+					15%
+				</form>				
+            </div>
+		</div>  	 	
+  	 </article>
+</section>
+
+
+
+
+<!--
+   - Modal
+   -	Mais procurados
+   -->
+<section class="modal is-visible" id="modal-procurados">
+  	<!-- Header modal -->  
+    <header>
+      <i class="material-icons" role="presentation">arrow_back</i>      
+       <span class="mdl-layout-title">Mais procurados</span>  
+  	</header>
+
+  	<article>
+  	<div class="mdl-grid">  	 		
+            <div class="mdl-cell mdl-cell--12-col">
+             	<form action="#">
+				  <div class="mdl-textfield mdl-js-textfield">
+				    <input class="mdl-textfield__input" type="text" id="modal-procurados-filtro">
+				    <label class="mdl-textfield__label" for="modal-procurados-filtro">Filtrar</label>
+				  </div>
+				</form>
+			</div>
+		</div>
+	  	
+  		<table class="mdl-data-table" >
+		  <tbody>
+		    <tr>		      
+		      <td>Atividade 1</td>
+		      <td><span class="mdl-badge" data-badge="45548"></span></td>
+		    </tr>
+		    <tr>		      
+		      <td>Atividade 2</td>
+		      <td><span class="mdl-badge" data-badge="4"></span></td>
+		    </tr>
+		  </tbody>
+		</table>	 	 	
+  	</article>
+</section>
 
 <!-- Simple header with fixed tabs. -->
   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
@@ -161,8 +188,8 @@
         <a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">home</i> Início</a>
         <a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">person_outline</i> Meu Canal</a>
         <a class="mdl-navigation__link" data-modal="#modal-favoritos"><i class="material-icons" role="presentation">favorite</i> Meus Favoritos</a>
-        <a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">whatshot</i> Mais procurados</a>
-        <a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">file_upload</i> Envie sua zuera</a>
+        <a class="mdl-navigation__link" data-modal="#modal-procurados"><i class="material-icons" role="presentation">whatshot</i> Mais procurados</a>
+        <a class="mdl-navigation__link" data-modal="#modal-envie"><i class="material-icons" role="presentation">file_upload</i> Envie sua zuera</a>
         <a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">share</i> Compartilhe o YouZuera</a>
         <a class="mdl-navigation__link" href="">Grupo</a>
         <a class="mdl-navigation__link" href="">Grupo</a>

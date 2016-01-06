@@ -15,29 +15,40 @@ var fecharMenu = function(){
 };
 
 
-
-
 /**
-   * Abrindo modal   
+   * Loop modals  
    * => event 
    */
-document.querySelector("[data-modal]").addEventListener('click', function(){	
-	var id = this.getAttribute("data-modal");
-	document.querySelector( id ).classList.add("is-visible");
+for(var n=0; n<document.querySelectorAll("[data-modal]").length; n++ ) {
 
-	fecharMenu();
-}, false);
+	/**
+   		* Abrindo modal   
+   		* => event 
+   		*/
+	document.querySelectorAll("[data-modal]")[n].addEventListener('click', function(){
+
+		var id = this.getAttribute("data-modal");
+		document.querySelector( id ).classList.add("is-visible");	
+		fecharMenu();
+
+	}, false);
+
+
+	/**
+   		* Fechando modal 
+   		* => event  
+   		*/
+	document.querySelectorAll(".modal header i")[n].addEventListener('click', function(){
+		this.parentNode.parentNode.classList.remove("is-visible");
+	}, false);
+
+}//.for
 
 
 
 
-/**
-   * Fechando modal 
-   * => event  
-   */
-document.querySelector("#modal-favoritos header i").addEventListener('click', function(){
-	console.log( this.parentNode.parentNode.classList.remove("is-visible") );
-}, false);
+
+
 
 
 
