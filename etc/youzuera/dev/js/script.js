@@ -33,19 +33,20 @@ for(var n=0; n<document.querySelectorAll("[data-modal]").length; n++ ) {
 
 	}, false);
 
+}//.for
 
+
+for(var n=0; n<document.querySelectorAll(".modal").length; n++ ) {
+	
 	/**
-   		* Fechando modal 
-   		* => event  
-   		*/
-	document.querySelectorAll(".modal header i")[n].addEventListener('click', function(){
+   	* Fechando modal 
+   	* => event  
+   	*/
+	document.querySelectorAll(".modal header > i")[n].addEventListener('click', function(){
 		this.parentNode.parentNode.classList.remove("is-visible");
 	}, false);
 
 }//.for
-
-
-
 
 
 

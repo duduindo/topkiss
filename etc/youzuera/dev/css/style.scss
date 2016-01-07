@@ -16,7 +16,10 @@ body {
 .text-center { text-align: center; }
 .no-margin { margin:0 !important; }
 .no-padding { padding:0 !important; }
-
+.float-right { float: right; }
+.float-left { float: left; }
+.padding5-top { padding-top: 5px; }
+.margin10-right { margin-right: 10px; }
 
 #page-inicio {	
 	background-color: #F3F3F3;	
@@ -231,7 +234,7 @@ body {
 		height: 100vh;
 	}
 
-	header .material-icons {
+	header > .material-icons {
 		font-size: 30px;
 		padding: 6px;
 		margin: 4px;
@@ -270,5 +273,33 @@ body {
 		min-width: 50px;
 		top: 0;		
 		width: auto;
+	}
+}
+
+
+
+
+#modal-perfil, #modal-meuperfil {
+
+	.mdl-card {
+		background:url('https://placehold.it/256x256') no-repeat center;
+		background-size: auto 200px;
+		width: 100%; 
+	}
+
+	.demo-card-image > .mdl-card__actions {		
+	  	height: 52px;
+	  	padding: 16px;
+	  	background: rgba(0, 0, 0, 0.2);
+
+	  	span {
+	  		color: #000;
+	  		font-size: 20px;
+	  	}
+	}
+	.demo-card-image__filename {
+	  color: #fff;
+	  font-size: 14px;
+	  font-weight: 500;
 	}
 }
