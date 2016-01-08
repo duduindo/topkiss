@@ -37,7 +37,8 @@ for(var n=0; n<document.querySelectorAll("[data-modal]").length; n++ ) {
 
 
 for(var n=0; n<document.querySelectorAll(".modal").length; n++ ) {
-	
+
+		
 	/**
    	* Fechando modal 
    	* => event  

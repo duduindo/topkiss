@@ -156,7 +156,8 @@ body {
 			color: #fff;
 			font-size: 25px;
 			margin: 5px;
-			transform: rotate(90deg);
+			-webkit-transform: rotate(90deg);
+				transform: rotate(90deg);
 		}
 		.preview-status span {			
 			color: #fff;

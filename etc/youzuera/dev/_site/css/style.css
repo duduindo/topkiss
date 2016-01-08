@@ -120,6 +120,7 @@ body {
     color: #fff;
     font-size: 25px;
     margin: 5px;
+    -webkit-transform: rotate(90deg);
     transform: rotate(90deg); }
   .main-preview[data-file-status="down"] .preview-status span {
     color: #fff;
