@@ -7,26 +7,35 @@
 
           <div class="mdl-layout-spacer"></div>
 
-          <!-- SEARCH BAR -->
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right">
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp" onclick="location.hash = '#busca'">
-              <i class="material-icons">search</i>
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="search" name="search-bar"  placeholder="Buscar" id="fixed-header-drawer-exp">
-            </div>
-          </div><!-- ./SEARCH BAR -->
+          <!-- BOTOES SEARCH e  -->
+          <button class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">&#xE8B6;</i>
+          </button>
+          <!-- Right aligned menu below button -->
+          <button id="menu-tipo-arquivos" class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">more_vert</i>
+          </button>          
+          <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="menu-tipo-arquivos">
+            <li class="mdl-menu__item"><i class="material-icons">&#xE0B8;</i> Todos</li>
+            <li class="mdl-menu__item"><i class="material-icons">&#xE02C;</i> Vídeos</li>            
+            <li class="mdl-menu__item"><i class="material-icons">&#xE251;</i> Imagens</li>
+            <li><hr></li>
+            <li class="mdl-menu__item"><i class="material-icons">&#xE03F;</i> Recentes</li>
+            <li class="mdl-menu__item"><i class="material-icons">&#xE01D;</i> Popular</li>
+            
+          </ul>
+          
       </div>
       <!-- Tabs -->
-      <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-        <a href="#fixed-tab-1" class="mdl-layout__tab is-active">IMAGENS</a>
-        <a href="#fixed-tab-2" class="mdl-layout__tab">VÍDEOS</a>        
-      </div>
+      <!-- <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+        <a href="#fixed-tab-1" class="mdl-layout__tab is-active">VÍDEOS</a>
+        <a href="#fixed-tab-2" class="mdl-layout__tab">IMAGENS</a>        
+      </div> -->      
     </header>
     
     <div class="mdl-layout__drawer">
       <span class="mdl-layout-title">YouZuera</span>
-      <nav class="mdl-navigation">
+      <nav class="mdl-navigation">        
         <a class="mdl-navigation__link" href=""><i class="material-icons" role="presentation">home</i> Início</a>
         <a class="mdl-navigation__link" data-modal="#modal-meuperfil"><i class="material-icons" role="presentation">person_outline</i> Meu Canal</a>
         <a class="mdl-navigation__link" data-modal="#modal-favoritos"><i class="material-icons" role="presentation">favorite</i> Meus Favoritos</a>

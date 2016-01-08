@@ -11,7 +11,7 @@
 
   	<!-- COMBO 1 -->
     <article class="main-preview" data-file-status="down" data-file-type="video" data-file="files/1.mp4">            
-      <div class="combo-preview">
+      <div class="combo-preview"  onclick="play(this)">
         <img src="files/1.jpg" alt="">
         <div class="main-status">
           <div class="preview-status">
@@ -149,109 +149,69 @@
    - Modal
    -	Perfil   
    -->
-<section class="modal" id="modal-perfil">
+<section class="modal is-visible" id="modal-perfil">
   	<!-- Header modal -->  
     <header>
       <i class="material-icons" role="presentation">arrow_back</i>      
-       <span class="mdl-layout-title">Canal</span>  
+       <span class="mdl-layout-title">Fulano</span>  
   	</header>
 
-  	 <article>
-  	 	 	<div class="demo-card-image mdl-card mdl-shadow--2dp">
-			  <div class="mdl-card__title mdl-card--expand"></div>
-			  <div class="mdl-card__actions">
-			    <span class="demo-card-image__filename">Fulano</span>
-			  </div>
-			</div>
+  	 <article>  	 	 	
 			<h6>Meus arquivos:</h6>
 
 			<div>
-				<!-- COMBO 1 -->
-    			<article class="main-preview" data-file-status="down" data-file-type="video" data-file="files/1.mp4">            
-    			  <div class="combo-preview">
-    			    <img src="files/1.jpg" alt="">
-    			    <div class="main-status">
-    			      <div class="preview-status">
-    			        <div class="preview-status-play">
-    			          <i class="material-icons">&#xE037;</i>
-    			        </div>
-    			        <div class="preview-status-load">
-    			          <progress value="22" max="100"></progress>
-    			          <i class="material-icons">&#xE5CD;</i>
-    			        </div>
-    			        <div class="preview-status-down">                    
-    			          <i class="material-icons">&#xE154;</i> <span>1,2 MB</span>
-    			        </div>
-    			      </div>
-    			      <div class="preview-tempo">
-    			        <i class="material-icons">&#xE04B;</i><span>00:56</span>
-    			      </div>
-    			    </div>
-    			  </div> <!-- ./combo-preview -->
-    			  
-    			  <div class="mdl-grid mdl-grid--no-spacing">
-    			    <div class="mdl-cell mdl-cell--12-col"><span>teste</span></div>
-    			    <div class="mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet" style="line-height: 30px;"><span>1215515 <small>visualizações</small></span></div>
-    			    <div class="mdl-cell mdl-cell--1-col mdl-cell--2-col-tablet text-right">                
-    			      <button class="mdl-button mdl-js-button mdl-button--icon">
-    			        <i class="material-icons">&#xE2C4;</i>
-    			      </button>
-    			      <button class="mdl-button mdl-js-button mdl-button--icon">
-    			        <i class="material-icons">&#xE87D;</i>
-    			      </button>
-    			    </div>
-    			    <div class="mdl-cell mdl-cell--12-col" style="line-height: 30px;">
-    			      <span>
-    			        <a href="#">Fulano</a>
-    			      </span>
-    			    </div>
-    			  </div>            
-    			</article>
-    			<!-- ./COMBO 1 -->
+				{% for i in (1..2) %}
 
-
-    			<!-- COMBO 1 -->
-    			<article class="main-preview" data-file-status="down" data-file-type="imagem" data-file="files/1.mp4">            
-    			  <div class="combo-preview">
-    			    <img src="files/1.jpg" alt="">
-    			    <div class="main-status">
-    			      <div class="preview-status">
-    			        <div class="preview-status-play">
-    			          <i class="material-icons">&#xE037;</i>
-    			        </div>
-    			        <div class="preview-status-load">
-    			          <progress value="22" max="100"></progress>
-    			          <i class="material-icons">&#xE5CD;</i>
-    			        </div>
-    			        <div class="preview-status-down">                    
-    			          <i class="material-icons">&#xE154;</i> <span>1,2 MB</span>
-    			        </div>
-    			      </div>
-    			      <div class="preview-tempo">
-    			        <i class="material-icons">&#xE04B;</i><span>00:56</span>
-    			      </div>
-    			    </div>
-    			  </div> <!-- ./combo-preview -->
-    			  
-    			  <div class="mdl-grid mdl-grid--no-spacing">
-    			    <div class="mdl-cell mdl-cell--12-col"><span>teste</span></div>
-    			    <div class="mdl-cell mdl-cell--3-col mdl-cell--6-col-tablet" style="line-height: 30px;"><span>1215515 <small>visualizações</small></span></div>
-    			    <div class="mdl-cell mdl-cell--1-col mdl-cell--2-col-tablet text-right">                
-    			      <button class="mdl-button mdl-js-button mdl-button--icon">
-    			        <i class="material-icons">&#xE2C4;</i>
-    			      </button>
-    			      <button class="mdl-button mdl-js-button mdl-button--icon">
-    			        <i class="material-icons">&#xE87D;</i>
-    			      </button>
-    			    </div>
-    			    <div class="mdl-cell mdl-cell--12-col" style="line-height: 30px;">
-    			      <span>
-    			        <a href="#">Fulano</a>
-    			      </span>
-    			    </div>
-    			  </div>            
-    			</article>
-    			<!-- ./COMBO 1 -->
+          		<!-- COMBO 1 -->
+          		<article class="main-preview" data-file-status="play" data-file-type="video" data-file="files/1.mp4" data-file-id="{{ i }}" >
+          		  <div class="combo-preview" onclick="play(this)">
+          		    <img src="files/1.jpg" alt="">
+          		    <div class="main-status">
+          		      <div class="preview-status">
+          		        <div class="preview-status-play">
+          		          <i class="material-icons">&#xE037;</i>
+          		        </div>
+          		        <div class="preview-status-load">
+          		          <progress value="22" max="100"></progress>
+          		          <i class="material-icons">&#xE5CD;</i>
+          		        </div>
+          		        <div class="preview-status-down">                    
+          		          <i class="material-icons">&#xE154;</i> <span>1,2 MB</span>
+          		        </div>
+          		      </div>
+          		      <div class="preview-tempo">
+          		        <i class="material-icons">&#xE04B;</i><span>00:56</span>
+          		      </div>
+          		    </div>
+          		  </div> <!-- ./combo-preview -->
+          		  
+          		  <div class="mdl-grid mdl-grid--no-spacing">
+          		    <div class="mdl-cell mdl-cell--12-col"><span>teste</span></div>
+          		    <div class="mdl-cell mdl-cell--2-col mdl-cell--5-col-tablet" style="line-height: 30px;"><span>1215515 <small>visualizações</small></span></div>
+          		    <div class="mdl-cell mdl-cell--2-col mdl-cell--3-col-tablet text-right">                
+          		      <button class="mdl-button mdl-js-button mdl-button--icon" data-modal="#modal-denunciar">
+          		        <i class="material-icons">&#xE3A0;</i>
+          		      </button>                                
+          		      <button class="mdl-button mdl-js-button mdl-button--icon">
+          		        <i class="material-icons">&#xE80D;</i>
+          		      </button>
+          		      <button class="mdl-button mdl-js-button mdl-button--icon">
+          		        <i class="material-icons">&#xE87D;</i>
+          		      </button>
+          		      <button class="mdl-button mdl-js-button mdl-button--icon">
+          		        <i class="material-icons">&#xE2C4;</i>
+          		      </button>                
+          		    </div>
+          		    <div class="mdl-cell mdl-cell--12-col" style="line-height: 30px;">
+          		      <span>
+          		        <a href="#">Fulano</a>
+          		      </span>
+          		    </div>
+          		  </div>            
+          		</article>
+          		<!-- ./COMBO 1 --> 
+		
+          		{% endfor %} 
 			</div>
 
   	 </article>
@@ -270,7 +230,7 @@
   	<!-- Header modal -->  
     <header>
       <i class="material-icons" role="presentation">arrow_back</i>      
-       <span class="mdl-layout-title">Meu Canal</span>
+       <span class="mdl-layout-title">Fulano</span>
 
        	<!-- Right aligned menu below button -->
 		<button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon" style="margin-left: auto;">
@@ -278,27 +238,28 @@
 		</button>
 		
 		<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
-		  <li class="mdl-menu__item">Alterar o nome</li>
-		  <li class="mdl-menu__item" style="color: #d9534f;">Deletar conta</li>
-		  <li class="mdl-menu__item">Sair da conta</li>		  
+			<li class="mdl-menu__item">Trocar foto</li>
+		  	<li class="mdl-menu__item">Alterar o nome</li>
+		  	<li class="mdl-menu__item" style="color: #d9534f;">Deletar conta</li>
+		  	<li class="mdl-menu__item">Sair da conta</li>		  
 		</ul>
   	</header>
 
   	 <article>
 
   	 	<!-- Left aligned menu below button -->	
-  	 	 	<div class="demo-card-image mdl-card mdl-shadow--2dp">
+  	 	 	<!-- <div class="demo-card-image mdl-card mdl-shadow--2dp">
 			  <div class="mdl-card__title mdl-card--expand"></div>
 			  <div class="mdl-card__actions">
 			    <span class="demo-card-image__filename">Fulano</span>
 			  </div>
-			</div>
+			</div> -->
 			<h6>Meus arquivos:</h6>
 
 			<div>
 				<!-- COMBO 1 -->
     			<article class="main-preview" data-file-status="down" data-file-type="video" data-file="files/1.mp4">            
-    			  <div class="combo-preview">
+    			  <div class="combo-preview"  onclick="play(this)">
     			    <img src="files/1.jpg" alt="">
     			    <div class="main-status">
     			      <div class="preview-status">
@@ -342,7 +303,7 @@
 
     			<!-- COMBO 1 -->
     			<article class="main-preview" data-file-status="down" data-file-type="imagem" data-file="files/1.mp4">            
-    			  <div class="combo-preview">
+    			  <div class="combo-preview"  onclick="play(this)">
     			    <img src="files/1.jpg" alt="">
     			    <div class="main-status">
     			      <div class="preview-status">
@@ -386,6 +347,8 @@
 
   	 </article>
 </section>
+
+
 
 
 
@@ -480,5 +443,70 @@
 		  
 		</div>
 		
+ 	</article>
+</section>
+
+
+
+
+<!--
+   - Modal
+   -	Denunciar
+   -->
+<section class="modal" id="modal-denunciar">
+  	<!-- Header modal -->  
+    <header>
+      <i class="material-icons" role="presentation">arrow_back</i>      
+       <span class="mdl-layout-title">Denunciando</span>  
+  	</header>
+
+  	<article>		
+		<div class="mdl-grid">
+		  <div class="mdl-cell mdl-cell--12-col">
+		  	<p>Seja breve na descrição. Coloque o teu email para receber status da denúncia.</p>		  	
+		  	<form action="#">
+		  		<input type="hidden" value="O VIDEO DENUNCIADO">
+		  	 	<div class="mdl-textfield mdl-js-textfield">
+  				  <textarea class="mdl-textfield__input" type="text" rows= "3" id="sample5" ></textarea>
+  				  <label class="mdl-textfield__label" for="sample5">Escreva o motivo</label>
+  				</div>			  
+			  	<div class="mdl-textfield mdl-js-textfield">
+			  	  <input class="mdl-textfield__input" type="email" id="sample2">
+			  	  <label class="mdl-textfield__label" for="sample2">Email</label>			    
+			  	</div>			  			  
+			  	<br><br>
+			  	<div class="mdl-textfield mdl-js-textfield">
+			  	 	<button class="mdl-button mdl-js-button mdl-button--raised">
+  						Enviar
+					</button>
+			  </div>			  
+			</form>
+			<p><b>Obrigado!</b></p>
+		  </div>
+		  
+		</div>
+		
+ 	</article>
+</section>
+
+
+
+
+
+<!--
+   - Modal
+   -	Visualizando o arquivos
+   -->
+<section class="modal" id="modal-visualizando">
+  	<!-- Header modal -->  
+    <header>      
+      <i class="material-icons" role="presentation">&#xE5CD;</i>
+  	</header>
+
+  	<article>
+  		<video controls>
+		  <source src="http://dudu.16mb.com/1.mp4" type="video/mp4" >		  
+			Your browser does not support the video tag.
+		</video>				
  	</article>
 </section>

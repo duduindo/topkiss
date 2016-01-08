@@ -21,8 +21,27 @@ body {
 .padding5-top { padding-top: 5px; }
 .margin10-right { margin-right: 10px; }
 
+
+[for="menu-tipo-arquivos"] li {
+	@extend .text-center;
+
+	i {
+		@extend .float-left;
+		margin-top: 12px;
+	}
+}
+
+
 #page-inicio {	
-	background-color: #F3F3F3;	
+	background-color: #F3F3F3;
+	//overflow-y: hidden;
+
+	.page-content {
+		//height: calc(100vh - 104px);
+		//overflow-y: auto;
+	}
+
+
 }
 
 
@@ -43,6 +62,10 @@ body {
 	padding-bottom: 20px;
 	padding-top: 20px;
 
+	&:last-child {
+		padding-bottom: 50px;
+	}
+
 	& > div {
 		background-color: #fff;		
 		width: 95vw;
@@ -58,10 +81,11 @@ body {
 
 	.combo-preview {
 		background-color: red;
-		position: relative;		
+		position: relative;	
 
 		& > img {
 			width: 100%;
+			max-height: 600px;
 		}
 	}
 
@@ -283,8 +307,9 @@ body {
 #modal-perfil, #modal-meuperfil {
 
 	.mdl-card {
-		background:url('https://placehold.it/256x256') no-repeat center;
-		background-size: auto 200px;
+		//background:url('https://placehold.it/256x256') no-repeat center;
+		background-color: #3E4EB8;
+		background-size: auto 200px;		
 		width: 100%; 
 	}
 
@@ -303,4 +328,21 @@ body {
 	  font-size: 14px;
 	  font-weight: 500;
 	}
+}
+
+
+
+#modal-visualizando {
+	background-color: #000;
+
+	header, article {
+		background-color: #000;
+	}
+
+	video {
+		height: auto !important;
+		width: 100% !important;
+	}
+
+	
 }
