@@ -4,13 +4,15 @@ overview: true
 id_page : "page-inicio"
 ---
 		
-    <main class="mdl-layout__content" id="page-inicio">
-      <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+    <main class="mdl-layout__content" id="page-inicio" >
+      <section id="fixed-tab-1">
         <div class="page-content"><!-- Your content goes here -->
           
+          {% for i in (1..5) %}
+
           <!-- COMBO 1 -->
-          <article class="main-preview" data-file-status="down" data-file-type="video" data-file="files/1.mp4">            
-            <div class="combo-preview">
+          <article class="main-preview" data-file-status="play" data-file-type="video" data-file="files/1.mp4" data-file-id="{{ i }}" >
+            <div class="combo-preview" onclick="play(this)">
               <img src="files/1.jpg" alt="">
               <div class="main-status">
                 <div class="preview-status">
@@ -33,40 +35,34 @@ id_page : "page-inicio"
             
             <div class="mdl-grid mdl-grid--no-spacing">
               <div class="mdl-cell mdl-cell--12-col"><span>teste</span></div>
-              <div class="mdl-cell mdl-cell--2-col mdl-cell--6-col-tablet" style="line-height: 30px;"><span>1215515 <small>visualizações</small></span></div>
-              <div class="mdl-cell mdl-cell--2-col mdl-cell--2-col-tablet text-right">                
+              <div class="mdl-cell mdl-cell--2-col mdl-cell--5-col-tablet" style="line-height: 30px;"><span>1215515 <small>visualizações</small></span></div>
+              <div class="mdl-cell mdl-cell--2-col mdl-cell--3-col-tablet text-right">                
+                <button class="mdl-button mdl-js-button mdl-button--icon" data-modal="#modal-denunciar">
+                  <i class="material-icons">&#xE3A0;</i>
+                </button>                                
                 <button class="mdl-button mdl-js-button mdl-button--icon">
-                  <i class="material-icons">&#xE2C4;</i>
+                  <i class="material-icons">&#xE80D;</i>
                 </button>
                 <button class="mdl-button mdl-js-button mdl-button--icon">
                   <i class="material-icons">&#xE87D;</i>
                 </button>
                 <button class="mdl-button mdl-js-button mdl-button--icon">
-                  <i class="material-icons">&#xE80D;</i>
-                </button>
+                  <i class="material-icons">&#xE2C4;</i>
+                </button>                
               </div>
               <div class="mdl-cell mdl-cell--12-col" style="line-height: 30px;">
                 <span>
-                  <a href="#">Fulano</a>
+                  <a data-modal="#modal-perfil">Fulano</a>
                 </span>
               </div>
             </div>            
           </article>
           <!-- ./COMBO 1 --> 
 
-
-
-          
+          {% endfor %}          
 
         </div>
       </section>
-      <section class="mdl-layout__tab-panel" id="fixed-tab-2">
-        <div class="page-content"><!-- Your content goes here -->
-              
-
-
-
-        </div>
-      </section>
+      
       
     </main>       
