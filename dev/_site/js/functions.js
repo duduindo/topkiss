@@ -1,6 +1,7 @@
 
 var getServerProcurandoLocaisData;
 var servidor = "http://192.168.2.100/topkiss/server/";
+var historico = [];
 
 //Event on
 var On = function(attr, selector, functions)
@@ -30,7 +31,7 @@ var AltenarMenu = function()
 {
 	var menu = document.getElementsByClassName("menu")[0];    
     menu.classList.toggle("active");
-    menu = null;
+    menu = null;    
 };
 
 //Altenar o Menu
@@ -46,8 +47,9 @@ var FecharMenu = function()
 {
 	var menu = document.getElementsByClassName("menu")[0];	
 	menu.classList.remove("active");  
-	menu = null;  
+	menu = null;
 };
+
 
 //WEB STORAGE
 var Dados = function( name, value )
@@ -62,6 +64,11 @@ var Dados = function( name, value )
 	name = null;
 	value = null;
 };
+
+
+
+
+
 
 
 //WEB STORAGE p/ VARIAVEIS GLOBAIS

@@ -6,9 +6,16 @@ html, body {
   height: 100%;
   margin: 0; }
 
-* {
+button {
+  -webkit-transition: background-color .40s;
+  transition: background-color .40s; }
+  button:active {
+    background-color: rgba(0, 0, 0, 0.3) !important; }
+
+button:focus {
   -webkit-tap-highlight-color: transparent !important;
-  -webkit-tap-highlight-color: transparent !important; }
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none; }
 
 .color-black {
   color: #000 !important; }
@@ -90,8 +97,8 @@ main > aside {
   height: 100%;
   left: -100%;
   position: fixed;
-  -webkit-transition: left 0.50s;
-  transition: left 0.50s;
+  -webkit-transition: left 0.40s;
+  transition: left 0.40s;
   top: 0;
   width: 100%;
   z-index: 9999; }
