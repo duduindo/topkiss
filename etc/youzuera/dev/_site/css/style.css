@@ -1,3 +1,25 @@
+/*@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url(../fonts/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}*/
 body {
   background-color: #fdfcfb; }
 
@@ -82,7 +104,7 @@ body {
     top: 0;
     width: 100%; }
     .main-preview .main-status > div {
-      border-radius: 10px; }
+      border-radius: 5px; }
       .main-preview .main-status > div.preview-status > div {
         display: none; }
       .main-preview .main-status > div.preview-tempo {
@@ -91,7 +113,7 @@ body {
         box-sizing: content-box;
         color: #fff;
         font-size: 12px;
-        height: 20px;
+        height: auto;
         line-height: 20px;
         left: 0;
         margin: 5px;
@@ -101,7 +123,8 @@ body {
           font-size: 20px;
           float: left; }
         .main-preview .main-status > div.preview-tempo span {
-          float: left; }
+          float: left;
+          padding-left: 5px; }
   .main-preview[data-file-status="play"] .preview-status {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 20px;

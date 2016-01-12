@@ -1,3 +1,6 @@
 server
 apk
 BK_geral
+etc/youzuera/apk
+etc/youzuera/server
+etc/youzuera/dev/bk-trechos.php

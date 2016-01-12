@@ -1,3 +1,11 @@
+/**
+   	* VARIAVEIS GLOBAIS
+   	* 
+   	*/
+var servidor = "http://192.168.2.100/topkiss/etc/youzuera/server/";
+var limite = 1;
+var Views = new ViewsMostrarArquivos();//views.js
+
 ;(function() {
 	"use strict";
 
@@ -52,6 +60,7 @@ for(var n=0; n<document.querySelectorAll(".modal").length; n++ ) {
 }//.for
 
 
+
 }());
 
 
@@ -85,19 +94,67 @@ function play( self_element ) {
 		}, false);
 		
 	}
-
-	if( status == "down" && type == "video" ) {
-		var down = new download( file );
-	}
-
+	
 };
 
 
-function download( url ) {
+
+
+function setViewMostrarArquivos ( json_data ) {
 	"use strict";
 
+	var data = json_data;
 
+	//var v = Views.paginaIndex("1", "dudu", "021", "458 MB", "54848", "Um titulo aqui", "video", "http://192.168.2.100/topkiss/etc/youzuera/server/files/1.mp4" ,"http://192.168.2.100/topkiss/etc/youzuera/server/files/1.jpg");
+
+
+
+	for(var n=0; n<json_data.length; n++) {
+		//$("#page-inicio .page-content").append( v );	
+		//Views.paginaIndex("1", "dudu", "021", "458 MB", "54848", "Um titulo aqui", "video", "http://192.168.2.100/topkiss/etc/youzuera/server/files/1.mp4" ,"http://192.168.2.100/topkiss/etc/youzuera/server/files/1.jpg");
+		$("#page-inicio .page-content").append(
+			Views.paginaIndex(
+				data[n].id, 
+				data[n].usuario, 
+				data[n].tempo, 
+				data[n].tamanho, 
+				data[n].visualizacoes,
+				data[n].titulo, 
+				data[n].tipo, 
+				data[n].url_file,
+				data[n].url_preview)
+		);//.page-content
+	}	
 };
 
 
+/**
+   	* AJAX
+   	* 
+   	*/
+var getModalArquivos = function( tipo ) {	
+	"use strict";
 
+	if( typeof tipo == "undefined" ) {
+		tipo = "all";
+	}
+
+
+ 	$.getJSON( window.servidor + "mostrar_arquivos.php?_jsonp=?", { "type":tipo, "limit":limite }, function() {})
+    .done(function( data ){     	
+    	
+    	console.log(data);
+    	setViewMostrarArquivos(data);
+    })
+    .fail(function() {       
+       alert("Erro:::");
+    });
+}
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function(){
+	getModalArquivos();
+}, false);
