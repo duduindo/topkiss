@@ -820,7 +820,7 @@
 
   window.addEventListener('touchstart', onTouchStart);
   window.addEventListener('touchmove', onTouchMove);
-  window.addEventListener('click', onTouchEnd);
+  window.addEventListener('touchend', onTouchEnd);
 
 }());
 

@@ -1,8 +1,11 @@
 @font-face {
   font-family: 'Roboto';
   src: url("../fonts/Roboto-Regular.ttf"); }
+@font-face {
+  font-family: 'Roboto Medium';
+  src: url("../fonts/Roboto-Medium.ttf"); }
 html, body {
-  font-family: 'Roboto','Helvetica','Arial',sans-serif !important;
+  font-family: 'Roboto','Helvetica','Arial',sans-serif;
   height: 100%;
   margin: 0; }
 
@@ -33,6 +36,9 @@ button:focus {
 
 .padding10 {
   padding: 10px !important; }
+
+.paddingRight0 {
+  padding-right: 0px; }
 
 .paddingLeft10 {
   padding-left: 10px; }
@@ -147,16 +153,40 @@ main > header, .modal > header {
   background-color: #FFF9C4 !important;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
   main > header.bar, main > header .btn, main > header .title, .modal > header.bar, .modal > header .btn, .modal > header .title {
-    line-height: 60px;
+    line-height: 60px !important;
     height: 60px; }
   main > header .btn, .modal > header .btn {
     width: 50px; }
+  main > header .title, .modal > header .title {
+    font-family: 'Roboto Medium'; }
 
 /* HEADER Geral */
 main > header .fa, main > header .icon {
   font-size: 24px; }
   main > header .fa.fa-bars, main > header .icon.fa-bars {
     font-size: 20px; }
+main > header .notification-status-icon {
+  position: relative;
+  -webkit-transition: font-size 1s, margin-top .25s, -webkit-transform .25s, transform .25s;
+  transition: font-size 1s, margin-top .25s, -webkit-transform .25s, transform .25s; }
+  main > header .notification-status-icon.active {
+    font-size: 30px;
+    margin-top: 15px;
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg); }
+    main > header .notification-status-icon.active:before {
+      color: rebeccapurple; }
+    main > header .notification-status-icon.active:after {
+      background-color: #5cb85c;
+      border-radius: 15px;
+      color: #fff;
+      content: '\f0d8';
+      font-size: 20px;
+      height: 22px;
+      right: -13px;
+      position: absolute;
+      top: -8px;
+      width: 22px; }
 
 /* MODAL */
 .modal header > a {
@@ -181,6 +211,16 @@ main > header .fa, main > header .icon {
   margin-bottom: 50px;
   padding-bottom: 50px; }
 
+#ModalNotifications small {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 70%; }
+#ModalNotifications .navigate-right:after {
+  display: none; }
+
 #PopoverTipoLocal {
   top: 135px; }
 
@@ -193,9 +233,12 @@ main > header .fa, main > header .icon {
   overflow-x: scroll;
   overflow-y: hidden;
   width: 100vw;
-  white-space: nowrap; }
+  white-space: nowrap;
+  /* Images users 
+  	div:nth-of-type(1) div:nth-of-type(3) { .showcase{}  }
+  */ }
   #page-index > section:nth-of-type(1) > div {
-    background-color: silver;
+    background-color: #848484;
     display: inline-block;
     overflow: hidden;
     height: 100%; }
@@ -207,6 +250,34 @@ main > header .fa, main > header .icon {
   #page-index > section:nth-of-type(1) > div:nth-of-type(3) {
     max-width: 100%;
     width: 100%; }
+  #page-index > section:nth-of-type(1) .showcase {
+    display: -webkit-flex;
+    display: flex;
+    background-color: #BDBFA4;
+    height: 100%;
+    position: relative;
+    width: 100%; }
+    #page-index > section:nth-of-type(1) .showcase > div {
+      background-color: tomato;
+      display: -webkit-flex;
+      display: flex;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%; }
+      #page-index > section:nth-of-type(1) .showcase > div:nth-of-type(1) {
+        -webkit-justify-content: center;
+        justify-content: center;
+        z-index: 1; }
+        #page-index > section:nth-of-type(1) .showcase > div:nth-of-type(1) img {
+          max-width: 100%;
+          height: 100%;
+          -webkit-filter: blur(5px);
+          filter: blur(5px); }
+      #page-index > section:nth-of-type(1) .showcase > div:nth-of-type(2) {
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2; }
 
 /* PAGE MEU PERFIL e PERFIL
 -------------------------------*/
