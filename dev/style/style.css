@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: 'Roboto';
   src: url("../fonts/Roboto-Regular.ttf"); }
@@ -256,16 +257,41 @@ main > header .notification-status-icon {
     background-color: #BDBFA4;
     height: 100%;
     position: relative;
-    width: 100%; }
+    width: 100%;
+    /*
+    *	Mapinula├º├úo 
+    */
+    /*
+    *	Estilos padr├Áes
+    */ }
+    #page-index > section:nth-of-type(1) .showcase.active.win .icon-win {
+      display: block; }
+    #page-index > section:nth-of-type(1) .showcase.active.loser .icon-loser {
+      display: block; }
+    #page-index > section:nth-of-type(1) .showcase.active .boxcase-imagem img {
+      -webkit-filter: blur(5px);
+      filter: blur(5px); }
+    #page-index > section:nth-of-type(1) .showcase.active .boxcase-informacoes {
+      visibility: visible; }
     #page-index > section:nth-of-type(1) .showcase > div {
       background-color: tomato;
       display: -webkit-flex;
       display: flex;
+      -webkit-flex-direction: column;
+      flex-direction: column;
       height: 100%;
       left: 0;
       position: absolute;
       top: 0;
-      width: 100%; }
+      width: 100%;
+      /*
+      *	div 1
+      *	.boxcase-imagem
+      */
+      /*
+      *	div 2
+      *	.boxcase-informacoes
+      */ }
       #page-index > section:nth-of-type(1) .showcase > div:nth-of-type(1) {
         -webkit-justify-content: center;
         justify-content: center;
@@ -273,11 +299,32 @@ main > header .notification-status-icon {
         #page-index > section:nth-of-type(1) .showcase > div:nth-of-type(1) img {
           max-width: 100%;
           height: 100%;
-          -webkit-filter: blur(5px);
-          filter: blur(5px); }
+          -webkit-transition: filter 1s, -webkit-filter 1s;
+          transition: filter 1s, -webkit-filter 1s; }
       #page-index > section:nth-of-type(1) .showcase > div:nth-of-type(2) {
-        background-color: rgba(0, 0, 0, 0.5);
+        -webkit-align-items: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.6);
+        -webkit-justify-content: center;
+        justify-content: center;
+        visibility: hidden;
+        -webkit-transition: visibility 1s;
+        transition: visibility 1s;
         z-index: 2; }
+        #page-index > section:nth-of-type(1) .showcase > div:nth-of-type(2) div:nth-of-type(1) * {
+          color: #fff;
+          display: inline-block;
+          margin: 5px; }
+        #page-index > section:nth-of-type(1) .showcase > div:nth-of-type(2) div:nth-of-type(2) h1 {
+          color: #CDE1F1;
+          display: none;
+          font-size: 100px;
+          -webkit-transition: display 1s;
+          transition: display 1s;
+          visibility: hidden; }
+        #page-index > section:nth-of-type(1) .showcase > div:nth-of-type(2) div:nth-of-type(3) a {
+          color: #fff;
+          text-decoration: underline; }
 
 /* PAGE MEU PERFIL e PERFIL
 -------------------------------*/

@@ -61,6 +61,11 @@
     	} 	
     });
 
+    //Showcase
+    new On('click', '.showcase', function(este, evento){
+        
+    });
+
 
     /*
     *   Abrir o menu com touch
